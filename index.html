@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dusk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Francis Jordan Hasnawi — Data Analyst &amp; Database Technologist</title>
+  
+  <meta name="description" content="Portfolio of Francis Jordan Hasnawi. Computer Science (Database Technology) undergraduate at BINUS University specializing in Data Analytics, Business Intelligence, ETL Pipelines, and Practical Digital Products.">
+  <meta name="keywords" content="Francis Jordan Hasnawi, Data Analyst, Data Scientist, Database Technology, Tableau, Python, SQL, Pentaho, Binus University">
+  <meta name="author" content="Francis Jordan Hasnawi">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23d97706%22/><text x=%2250%22 y=%2268%22 font-family=%22sans-serif%22 font-weight=%22800%22 font-size=%2248%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>FJ</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Interactive Animated Silk Waves & Constellation Backdrop -->
+  <div class="ambient-canvas" aria-hidden="true">
+    <canvas id="bgCanvas"></canvas>
+    <div class="bg-grid-overlay"></div>
+    <div class="bg-vignette"></div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header" id="header">
+    <div class="nav-container">
+      <a href="#hero" class="brand-monogram" aria-label="Francis Jordan Home">
+        <span class="brand-badge">FJ</span>
+        <span class="brand-name">Francis Jordan<span class="accent-dot">.</span></span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#research" class="nav-link">ETL &amp; Research</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle Button (Warm Dusk <-> Editorial Light) -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Switch color theme" title="Switch between Warm Dusk and Light Mode">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span class="theme-label" id="themeLabel">Light Mode</span>
+        </button>
+
+        <div class="status-indicator" title="Available for Data Analyst / Data Science Internships &amp; Junior Roles">
+          <span class="status-dot pulse"></span>
+          <span class="status-text">Open to Roles</span>
+        </div>
+
+        <a href="assets/Francis_Jordan_Hasnawi_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline" title="Open or download ATS-friendly CV">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span>CV (PDF)</span>
+        </a>
+        <a href="#contact" class="btn btn-sm btn-primary">Let's Talk</a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <nav class="mobile-nav">
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#research" class="mobile-link">ETL &amp; Research</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#experience" class="mobile-link">Experience</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="assets/Francis_Jordan_Hasnawi_CV.pdf" target="_blank" rel="noopener noreferrer" class="mobile-link" style="color: var(--accent-primary); font-weight: 700;">Download CV (PDF) &rarr;</a>
+        <button class="btn btn-secondary w-full" id="mobileThemeBtn" style="margin-top: 0.5rem;">Switch Theme (Light / Dusk)</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         HERO SECTION (CLEAN, SPACIOUS, PERSONAL & CONFIDENT)
+         ====================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        
+        <!-- Left: Personal Intro -->
+        <div class="hero-content">
+          <div class="hero-pill-badge">
+            <span class="pill-dot"></span>
+            <span>COMPUTER SCIENCE STUDENT &bull; BINUS UNIVERSITY</span>
+          </div>
+
+          <h1 class="hero-name">
+            Francis Jordan<br>Hasnawi
+          </h1>
+
+          <p class="hero-bio">
+            Hi, I'm Francis. A Computer Science undergraduate specializing in <strong>Database Technology</strong> at BINUS University (GPA: 3.72/4.00). This portfolio showcases my journey through data analytics, database engineering, and practical project explorations. I enjoy exploring datasets, uncovering clear insights, and turning what I learn into useful solutions that solve real-world problems.
+          </p>
+
+          <!-- Role Badges -->
+          <div class="hero-roles-row">
+            <span class="hero-role-badge primary-role">Data Analyst &amp; Database Tech</span>
+            <span class="hero-role-badge secondary-role">GPA 3.72 / 4.00</span>
+          </div>
+
+          <!-- Hero Action Button Group (Download CV & View Work) -->
+          <div class="hero-cta-group">
+            <a href="assets/Francis_Jordan_Hasnawi_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary hero-btn-cv">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <span>Download CV (PDF)</span>
+            </a>
+            <a href="#projects" class="btn btn-secondary">
+              <span>Explore Projects</span>
+            </a>
+          </div>
+
+          <!-- Clean Social & Contact Links Row -->
+          <div class="hero-social-links">
+            <a href="https://www.linkedin.com/in/francis-jordan-hasnawi-a90539326/" target="_blank" rel="noopener noreferrer" class="hero-link-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2m1.39 9.74v-8.37H5.07v8.37h2.78z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/fjordh12" target="_blank" rel="noopener noreferrer" class="hero-link-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>GitHub</span>
+            </a>
+            <a href="https://www.facebook.com/jordan.hasnawi" target="_blank" rel="noopener noreferrer" class="hero-link-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <span>Facebook</span>
+            </a>
+            <a href="mailto:francis.hasnawi@binus.ac.id" class="hero-link-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>Email</span>
+            </a>
+            <a href="#contact" class="hero-link-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>Contact</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Transparent Cutout Half-Body Portrait -->
+        <div class="hero-visual">
+          <div class="hero-photo-stage">
+            <div class="hero-portrait-halo"></div>
+            <img 
+              src="assets/images/hero-francis.png" 
+              alt="Francis Jordan Hasnawi"
+              class="hero-cutout-img"
+            />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Centered Bottom Scroll Pill -->
+      <div class="hero-scroll-Prompt">
+        <a href="#projects" class="explore-journey-pill">
+          <span>EXPLORE JOURNEY</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION: SELECTED PROJECTS & CASE STUDIES
+         ====================================================================== -->
+    <section class="section-padding projects-section" id="projects">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-kicker">SELECTED WORK</div>
+          <h2 class="section-title">Data Analytics &amp; Project Explorations</h2>
+          <p class="section-desc">
+            A curated collection of business intelligence dashboards, Python data pipelines, and interactive applications built to turn complex data into clear answers.
+          </p>
+        </div>
+
+        <!-- Filter Pill Tabs -->
+        <div class="filter-tabs-container">
+          <div class="filter-tabs" role="tablist">
+            <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Projects (6)</button>
+            <button class="filter-btn" data-filter="analytics" role="tab">Data Analytics &amp; BI</button>
+            <button class="filter-btn" data-filter="engineering" role="tab">ETL &amp; Data Science</button>
+            <button class="filter-btn" data-filter="webapps" role="tab">Interactive Web Apps</button>
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projectsGrid">
+
+          <!-- PROJECT 1: BANK LOAN PORTFOLIO CREDIT RISK (Tableau) -->
+          <article class="project-card" data-category="analytics">
+            <div class="card-visual">
+              <div class="window-frame">
+                <div class="window-bar">
+                  <span class="win-dot red"></span>
+                  <span class="win-dot yellow"></span>
+                  <span class="win-dot green"></span>
+                  <span class="win-title">BankLoan_CreditRisk.twb</span>
+                </div>
+                <div class="window-screen">
+                  <img src="assets/images/project-bank-loan.png" alt="Portfolio Credit Risk and Delinquency Intelligence Dashboard" class="card-img" loading="lazy">
+                </div>
+              </div>
+              <div class="card-overlay-actions">
+                <button class="btn btn-sm btn-light open-modal-btn" data-project-id="bank-loan">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  <span>View Case Study</span>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-category">Tableau &bull; Credit Risk BI</span>
+                <span class="card-period">2008–2018 Dataset</span>
+              </div>
+              <h3 class="card-title">Portfolio Credit Risk &amp; Delinquency Intelligence</h3>
+              <p class="card-summary">
+                Executive risk dashboard analyzing <strong>$34.01 Billion</strong> in funded loan volume across <strong>2.26M accounts</strong>. Tracks default rate (NPL) trends by issue year, loan grade risk escalation (Grades A to G), state-by-state delinquency maps, and DTI underwriting matrices.
+              </p>
+              
+              <div class="card-metrics-row">
+                <div class="mini-kpi">
+                  <span class="kpi-num">$34.01B</span>
+                  <span class="kpi-text">Funded Volume</span>
+                </div>
+                <div class="mini-kpi">
+                  <span class="kpi-num">12.58%</span>
+                  <span class="kpi-text">Avg Default (NPL)</span>
+                </div>
+                <div class="mini-kpi">
+                  <span class="kpi-num">2.26M</span>
+                  <span class="kpi-text">Loan Accounts</span>
+                </div>
+              </div>
+
+              <div class="tech-stack-strip">
+                <span class="tech-chip">Tableau Desktop</span>
+                <span class="tech-chip">Credit Risk Analysis</span>
+                <span class="tech-chip">KPI Design</span>
+                <span class="tech-chip">Cross-Filtering</span>
+              </div>
+
+              <div class="card-footer-action">
+                <button class="btn-text-link open-modal-btn" data-project-id="bank-loan">
+                  <span>Read Case Study &amp; Insights</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: BIKE RETAIL E-SALES & SEASONAL REVENUE OPTIMIZATION (Tableau) -->
+          <article class="project-card" data-category="analytics">
+            <div class="card-visual">
+              <div class="window-frame">
+                <div class="window-bar">
+                  <span class="win-dot red"></span>
+                  <span class="win-dot yellow"></span>
+                  <span class="win-dot green"></span>
+                  <span class="win-title">Bike_Retail_eSales_BI.twbx</span>
+                </div>
+                <div class="window-screen">
+                  <img src="assets/images/project-bike-sales.png" alt="Global Bike Retail e-Sales &amp; Seasonal Demand Optimization Dashboard" class="card-img" loading="lazy">
+                </div>
+              </div>
+              <div class="card-overlay-actions">
+                <button class="btn btn-sm btn-light open-modal-btn" data-project-id="bike-sales">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  <span>View Case Study</span>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-category">Tableau &bull; Retail Analytics</span>
+                <span class="card-period">BINUS Data Vis Project</span>
+              </div>
+              <h3 class="card-title">Bike Retail Seasonal Demand &amp; Profit Growth</h3>
+              <p class="card-summary">
+                Transformed <strong>113,036 transaction records</strong> into an interactive retail intelligence dashboard. Identified summer and December holiday peaks driving <strong>$85.27M revenue</strong> and <strong>$32.22M profit</strong> to help prevent stockouts and overstocking.
+              </p>
+
+              <div class="card-metrics-row">
+                <div class="mini-kpi">
+                  <span class="kpi-num">$85.27M</span>
+                  <span class="kpi-text">Total Revenue</span>
+                </div>
+                <div class="mini-kpi">
+                  <span class="kpi-num">37.79%</span>
+                  <span class="kpi-text">Profit Margin</span>
+                </div>
+                <div class="mini-kpi">
+                  <span class="kpi-num">113K+</span>
+                  <span class="kpi-text">Rows Processed</span>
+                </div>
+              </div>
+
+              <div class="tech-stack-strip">
+                <span class="tech-chip">Tableau</span>
+                <span class="tech-chip">Seasonal Trend Analysis</span>
+                <span class="tech-chip">Inventory Strategy</span>
+                <span class="tech-chip">Data Storytelling</span>
+              </div>
+
+              <div class="card-footer-action">
+                <button class="btn-text-link open-modal-btn" data-project-id="bike-sales">
+                  <span>Read Case Study &amp; Report</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: GEFORCE 3D EXPLORER & GPU COMPUTE ANALYTICS (Python + 3D) -->
+          <article class="project-card" data-category="engineering">
+            <div class="card-visual">
+              <div class="window-frame dark-frame">
+                <div class="window-bar">
+                  <span class="win-dot red"></span>
+                  <span class="win-dot yellow"></span>
+                  <span class="win-dot green"></span>
+                  <span class="win-title">geforce-3d-explorer.netlify.app</span>
+                </div>
+                <div class="window-screen">
+                  <img src="assets/images/project-geforce.png" alt="GeForce 3D GPU Explorer &amp; Data Analytics Platform" class="card-img" loading="lazy">
+                </div>
+              </div>
+              <div class="card-overlay-actions">
+                <a href="https://geforce-3d-explorer.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-light">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  <span>Live Website</span>
+                </a>
+                <button class="btn btn-sm btn-secondary open-modal-btn" data-project-id="geforce">
+                  <span>EDA &amp; Details</span>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-category">Python EDA &bull; Interactive 3D</span>
+                <span class="card-period">Data Pipeline + Web App</span>
+              </div>
+              <h3 class="card-title">GeForce GPU Spec Pipeline &amp; 3D Explorer</h3>
+              <p class="card-summary">
+                End-to-end Python pipeline (Pandas, Seaborn) cleaning and analyzing <strong>46 NVIDIA desktop GPUs</strong> across 5 architectures. Engineered FP32 TFLOPS and price-to-performance metrics, paired with an interactive 3D WebGL specification explorer.
+              </p>
+
+              <div class="card-metrics-row">
+                <div class="mini-kpi">
+                  <span class="kpi-num">46 GPUs</span>
+                  <span class="kpi-text">Cleaned Dataset</span>
+                </div>
+                <div class="mini-kpi">
+                  <span class="kpi-num">r = 0.88</span>
+                  <span class="kpi-text">CUDA/Price Corr</span>
+                </div>
+                <div class="mini-kpi">
+                  <span class="kpi-num">3 Charts</span>
+                  <span class="kpi-text">Python EDA + 3D</span>
+                </div>
+              </div>
+
+              <div class="tech-stack-strip">
+                <span class="tech-chip">Python (Pandas)</span>
+                <span class="tech-chip">Seaborn / Matplotlib</span>
+                <span class="tech-chip">Jupyter Notebook</span>
+                <span class="tech-chip">3D Web Visualization</span>
+              </div>
+
+              <div class="card-footer-action">
+                <a href="https://geforce-3d-explorer.netlify.app/" target="_blank" rel="noopener noreferrer" class="live-link">
+                  <span>Open Live Website</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+                <button class="btn-text-link open-modal-btn" data-project-id="geforce">View Python EDA &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 4: B-NEXUS AI STUDY PLATFORM -->
+          <article class="project-card" data-category="webapps">
+            <div class="card-visual">
+              <div class="window-frame">
+                <div class="window-bar">
+                  <span class="win-dot red"></span>
+                  <span class="win-dot yellow"></span>
+                  <span class="win-dot green"></span>
+                  <span class="win-title">b-nexus-study.vercel.app</span>
+                </div>
+                <div class="window-screen">
+                  <img src="assets/images/project-bnexus.png" alt="B-Nexus AI Study Assistant" class="card-img" loading="lazy">
+                </div>
+              </div>
+              <div class="card-overlay-actions">
+                <a href="https://ai-learning-assistant-fe-nine.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-light">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  <span>Live Website</span>
+                </a>
+                <button class="btn btn-sm btn-secondary open-modal-btn" data-project-id="bnexus">
+                  <span>Details</span>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-category">Applied AI &bull; EdTech</span>
+                <span class="card-period">Vercel Deployment</span>
+              </div>
+              <h3 class="card-title">B-Nexus — AI Study Assistant for Binusians</h3>
+              <p class="card-summary">
+                Smart study platform designed for university students. Converts lecture PDFs and course notes into interactive flashcards, practice quizzes, and study progress analytics tailored to BINUS coursework.
+              </p>
+
+              <div class="card-metrics-row">
+                <div class="mini-kpi">
+                  <span class="kpi-num">PDF &rarr; Quiz</span>
+                  <span class="kpi-text">Auto Extraction</span>
+                </div>
+                <div class="mini-kpi">
+                  <span class="kpi-num">Flashcards</span>
+                  <span class="kpi-text">Active Recall</span>
+                </div>
+                <div class="mini-kpi">
+                  <span class="kpi-num">Dashboard</span>
+                  <span class="kpi-text">Progress Tracker</span>
+                </div>
+              </div>
+
+              <div class="tech-stack-strip">
+                <span class="tech-chip">Product Logic</span>
+                <span class="tech-chip">AI Document Parsing</span>
+                <span class="tech-chip">Web Application</span>
+                <span class="tech-chip">Vercel</span>
+              </div>
+
+              <div class="card-footer-action">
+                <a href="https://ai-learning-assistant-fe-nine.vercel.app/" target="_blank" rel="noopener noreferrer" class="live-link">
+                  <span>Open Live Website</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+                <button class="btn-text-link open-modal-btn" data-project-id="bnexus">Screenshots &amp; Flow &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 5: GROWMASS SUITE -->
+          <article class="project-card" data-category="webapps">
+            <div class="card-visual">
+              <div class="window-frame dark-frame">
+                <div class="window-bar">
+                  <span class="win-dot red"></span>
+                  <span class="win-dot yellow"></span>
+                  <span class="win-dot green"></span>
+                  <span class="win-title">growmass-planner.netlify.app</span>
+                </div>
+                <div class="window-screen">
+                  <img src="assets/images/project-growtopia.png" alt="GrowMass Massing &amp; Farm Yield Simulator" class="card-img" loading="lazy">
+                </div>
+              </div>
+              <div class="card-overlay-actions">
+                <a href="https://growmass-planner.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-light">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  <span>Live Website</span>
+                </a>
+                <button class="btn btn-sm btn-secondary open-modal-btn" data-project-id="growtopia">
+                  <span>Details</span>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-category">Simulation &bull; Economic Math</span>
+                <span class="card-period">Netlify Deployment</span>
+              </div>
+              <h3 class="card-title">GrowMass — Production Chain &amp; Yield Simulator</h3>
+              <p class="card-summary">
+                Step-by-step mathematical calculator and resource planner for complex virtual crafting chains. Computes seed loss probabilities, marginal fuel profit, and optimal buy-vs-craft decisions across 800+ item recipes.
+              </p>
+
+              <div class="card-metrics-row">
+                <div class="mini-kpi">
+                  <span class="kpi-num">800+</span>
+                  <span class="kpi-text">Item Database</span>
+                </div>
+                <div class="mini-kpi">
+                  <span class="kpi-num">3 Modes</span>
+                  <span class="kpi-text">Planner &amp; Sim</span>
+                </div>
+                <div class="mini-kpi">
+                  <span class="kpi-num">ROI Math</span>
+                  <span class="kpi-text">Loss &amp; Yield Calc</span>
+                </div>
+              </div>
+
+              <div class="tech-stack-strip">
+                <span class="tech-chip">Algorithmic Logic</span>
+                <span class="tech-chip">Probability Modeling</span>
+                <span class="tech-chip">JSON Recipe Tree</span>
+                <span class="tech-chip">Netlify</span>
+              </div>
+
+              <div class="card-footer-action">
+                <a href="https://growmass-planner.netlify.app/" target="_blank" rel="noopener noreferrer" class="live-link">
+                  <span>Open Live Website</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+                <button class="btn-text-link open-modal-btn" data-project-id="growtopia">Case Study &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 6: FLAVORCIRCLE PLATFORM -->
+          <article class="project-card" data-category="webapps">
+            <div class="card-visual">
+              <div class="window-frame dark-frame">
+                <div class="window-bar">
+                  <span class="win-dot red"></span>
+                  <span class="win-dot yellow"></span>
+                  <span class="win-dot green"></span>
+                  <span class="win-title">FlavorCircle — Campus Dining UI</span>
+                </div>
+                <div class="window-screen">
+                  <img src="assets/images/project-flavorcircle.png" alt="FlavorCircle Campus Food Platform" class="card-img" loading="lazy">
+                </div>
+              </div>
+              <div class="card-overlay-actions">
+                <a href="FlavorCircle/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-light">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  <span>Open Prototype</span>
+                </a>
+                <button class="btn btn-sm btn-secondary open-modal-btn" data-project-id="flavorcircle">
+                  <span>Details</span>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-category">UI/UX &bull; HCI Project</span>
+                <span class="card-period">BINUS Kelompok 5</span>
+              </div>
+              <h3 class="card-title">FlavorCircle — Campus Food &amp; Foodie Community</h3>
+              <p class="card-summary">
+                Human-Computer Interaction (HCI) campus food ordering prototype. Features a 17-page user flow, slide-over shopping cart, campus location switcher (Syahdan, Anggrek, Kijang), and interactive checkout simulation.
+              </p>
+
+              <div class="card-metrics-row">
+                <div class="mini-kpi">
+                  <span class="kpi-num">17 Pages</span>
+                  <span class="kpi-text">Complete Flow</span>
+                </div>
+                <div class="mini-kpi">
+                  <span class="kpi-num">Live Cart</span>
+                  <span class="kpi-text">Checkout Sim</span>
+                </div>
+                <div class="mini-kpi">
+                  <span class="kpi-num">4 Campuses</span>
+                  <span class="kpi-text">Location Picker</span>
+                </div>
+              </div>
+
+              <div class="tech-stack-strip">
+                <span class="tech-chip">HCI &amp; Usability</span>
+                <span class="tech-chip">User Flow Design</span>
+                <span class="tech-chip">Interactive Prototype</span>
+              </div>
+
+              <div class="card-footer-action">
+                <a href="FlavorCircle/index.html" target="_blank" rel="noopener noreferrer" class="live-link">
+                  <span>Try Local Prototype</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+                <button class="btn-text-link open-modal-btn" data-project-id="flavorcircle">Case Study &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION: ETL & ACADEMIC RESEARCH SPOTLIGHT (PENTAHO)
+         ====================================================================== -->
+    <section class="section-padding research-section" id="research">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-kicker">DATA ENGINEERING &amp; RESEARCH</div>
+          <h2 class="section-title">ETL Pipelines &amp; Academic Research</h2>
+          <p class="section-desc">
+            Hands-on data warehousing and empirical research comparing low-code ETL (Pentaho Data Integration) with code-first pipelines across global macroeconomic datasets.
+          </p>
+        </div>
+
+        <div class="research-grid">
+          
+          <!-- Left: Research Overview Card -->
+          <div class="research-card">
+            <div class="research-badge">
+              <span class="paper-tag">IEEE Format Research Paper</span>
+              <span class="paper-authors">Co-Authored at BINUS University</span>
+            </div>
+
+            <h3 class="research-title">
+              Comparative Analysis of Low-Code (Pentaho PDI) vs Code-First (Python) ETL Pipelines
+            </h3>
+
+            <p class="research-abstract">
+              Co-authored an academic study evaluating <strong>performance, complexity, auditability, and reproducibility</strong> when building ETL pipelines across multiple macroeconomic datasets (Global Income across 184 countries &amp; Global Inflation across 212 countries). We designed the end-to-end Pentaho Data Integration (Spoon) pipeline to clean, normalize, and merge raw CSV sources into structured Star-Schema Fact and Dimension tables.
+            </p>
+
+            <div class="research-kpis">
+              <div class="kpi-box">
+                <span class="kpi-box-num">184–212</span>
+                <span class="kpi-box-label">Countries Processed</span>
+              </div>
+              <div class="kpi-box">
+                <span class="kpi-box-num">Star Schema</span>
+                <span class="kpi-box-label">Fact &amp; Dim Tables</span>
+              </div>
+              <div class="kpi-box">
+                <span class="kpi-box-num">IEEE</span>
+                <span class="kpi-box-label">Paper Standard</span>
+              </div>
+            </div>
+
+            <div class="research-actions">
+              <button class="btn btn-primary open-modal-btn" data-project-id="pentaho-research">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>View Pipeline &amp; Paper Summary</span>
+              </button>
+              <a href="assets/IEEE_Pentaho_Research_Paper.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <span>Open IEEE Paper (PDF)</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Actual Pentaho Pipeline Diagram -->
+          <div class="etl-architecture-card">
+            <div class="arch-header">
+              <h4 class="arch-title">Pentaho Data Integration (Spoon) Flow</h4>
+              <span class="arch-badge">Actual ETL Pipeline</span>
+            </div>
+            <div class="pipeline-img-wrap open-modal-btn" data-project-id="pentaho-research" role="button" tabindex="0" title="Click to enlarge Pentaho ETL pipeline">
+              <img src="assets/images/project-pentaho.png" alt="Pentaho Data Integration Pipeline Flow" class="pipeline-img" loading="lazy">
+            </div>
+            <div class="pipeline-caption">
+              <strong>Multi-Source ETL Pipeline:</strong> Ingesting Peace Index, Global Inflation, and WIDER datasets &rarr; Row Normalizer, Filter Rows, Merge Joins &rarr; Outputting <code>FACT_TABLE</code>, <code>DIM_COUNTRY</code>, <code>Dim_Time</code>, and <code>Fact_Economic_Peace</code>.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION: SKILLS & TOOLING (CLEAN, HONEST & SCANNABLE)
+         ====================================================================== -->
+    <section class="section-padding skills-section" id="skills">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-kicker">CAPABILITIES</div>
+          <h2 class="section-title">Skills &amp; Analytical Toolkit</h2>
+          <p class="section-desc">
+            Focused on data visualization, relational databases, and analytical problem solving — supported by AI-assisted prototyping to turn logic into working applications.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          
+          <!-- Category 1: Data Analytics & BI -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="cat-icon-wrap analytics">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+              </div>
+              <div>
+                <h3 class="cat-title">Data Analytics &amp; BI</h3>
+                <span class="cat-subtitle">Visualizing patterns &amp; business KPIs</span>
+              </div>
+            </div>
+            <p class="skill-cat-desc">
+              Building interactive dashboards, tracking credit risk &amp; retail sales metrics, and translating raw tables into clear visual stories for decision-makers.
+            </p>
+            <div class="skill-pills-wrap">
+              <span class="skill-pill highlight">Tableau Desktop</span>
+              <span class="skill-pill highlight">Data Visualization</span>
+              <span class="skill-pill">Dashboard Design</span>
+              <span class="skill-pill">KPI Formulation</span>
+              <span class="skill-pill">Exploratory Data Analysis (EDA)</span>
+              <span class="skill-pill">Microsoft Excel / CSV</span>
+            </div>
+          </div>
+
+          <!-- Category 2: Databases & ETL Engineering -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="cat-icon-wrap database">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              </div>
+              <div>
+                <h3 class="cat-title">Databases &amp; ETL</h3>
+                <span class="cat-subtitle">BINUS Database Technology specialization</span>
+              </div>
+            </div>
+            <p class="skill-cat-desc">
+              Designing relational schemas, writing SQL queries, and constructing low-code ETL pipelines to clean, normalize, and integrate multi-source datasets.
+            </p>
+            <div class="skill-pills-wrap">
+              <span class="skill-pill highlight">SQL (MySQL / PostgreSQL)</span>
+              <span class="skill-pill highlight">Pentaho PDI (Spoon)</span>
+              <span class="skill-pill">ETL Pipelines</span>
+              <span class="skill-pill">Database Normalization</span>
+              <span class="skill-pill">Star Schema Design</span>
+              <span class="skill-pill">Data Cleaning</span>
+            </div>
+          </div>
+
+          <!-- Category 3: Python & CS Foundations -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="cat-icon-wrap code">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div>
+                <h3 class="cat-title">Python &amp; CS Fundamentals</h3>
+                <span class="cat-subtitle">Data wrangling &amp; algorithmic logic</span>
+              </div>
+            </div>
+            <p class="skill-cat-desc">
+              Using Python notebooks for data cleaning, feature calculations, and statistical plots, backed by core computer science fundamentals from university coursework.
+            </p>
+            <div class="skill-pills-wrap">
+              <span class="skill-pill highlight">Python</span>
+              <span class="skill-pill highlight">Pandas &amp; NumPy</span>
+              <span class="skill-pill">Matplotlib &amp; Seaborn</span>
+              <span class="skill-pill">Jupyter Notebook</span>
+              <span class="skill-pill">C / C# Basics</span>
+              <span class="skill-pill">Git &amp; GitHub</span>
+            </div>
+          </div>
+
+          <!-- Category 4: System Logic & AI-Assisted Prototyping -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="cat-icon-wrap frontend">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <div>
+                <h3 class="cat-title">Logic &amp; AI-Assisted Building</h3>
+                <span class="cat-subtitle">Turning data &amp; ideas into web apps</span>
+              </div>
+            </div>
+            <p class="skill-cat-desc">
+              I design the core product logic, mathematical formulas, and user flows, then leverage AI coding tools to rapidly build and deploy functional web applications.
+            </p>
+            <div class="skill-pills-wrap">
+              <span class="skill-pill highlight">Problem &amp; Formula Logic</span>
+              <span class="skill-pill highlight">AI-Assisted Development</span>
+              <span class="skill-pill">Prompt Engineering</span>
+              <span class="skill-pill">Rapid Prototyping</span>
+              <span class="skill-pill">HTML / CSS / JS Basics</span>
+              <span class="skill-pill">Vercel &amp; Netlify</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION: EDUCATION & EXPERIENCE TIMELINE
+         ====================================================================== -->
+    <section class="section-padding experience-section" id="experience">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-kicker">JOURNEY &amp; BACKGROUND</div>
+          <h2 class="section-title">Education &amp; Real-World Experience</h2>
+          <p class="section-desc">
+            My academic path in Computer Science paired with hands-on organizational teamwork and real-world digital business onboarding.
+          </p>
+        </div>
+
+        <div class="experience-columns">
+          
+          <!-- LEFT COLUMN: ACADEMIC EDUCATION -->
+          <div class="exp-column">
+            <div class="exp-col-header">
+              <span class="exp-col-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </span>
+              <h3 class="exp-col-title">Academic Education</h3>
+            </div>
+
+            <div class="timeline">
+              <!-- ITEM 1: BINUS UNIVERSITY -->
+              <div class="timeline-item">
+                <div class="timeline-marker">
+                  <div class="marker-dot current"></div>
+                </div>
+                <div class="timeline-card">
+                  <div class="timeline-meta">
+                    <span class="timeline-badge primary">2024 — Present (B28)</span>
+                    <span class="timeline-loc">BINUS Kemanggisan, Jakarta</span>
+                  </div>
+                  <h4 class="timeline-title">Bina Nusantara University (BINUS)</h4>
+                  <div class="timeline-subtitle">Undergraduate in Computer Science — Database Technology</div>
+                  <p class="timeline-desc">
+                    Maintaining a cumulative <strong>GPA of 3.72 / 4.00</strong>. Specializing in relational database systems, data warehousing, ETL pipelines (Pentaho), data visualization (Tableau), and human-computer interaction. Co-authored an IEEE-format comparative ETL research paper.
+                  </p>
+                  <div class="coursework-box">
+                    <span class="coursework-label">Key Coursework &amp; Focus:</span>
+                    <div class="timeline-tags">
+                      <span>GPA 3.72 / 4.00</span>
+                      <span>Database Technology</span>
+                      <span>Data Warehousing &amp; ETL</span>
+                      <span>Data Visualization</span>
+                      <span>Human-Computer Interaction</span>
+                      <span>Algorithms &amp; Python</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ITEM 2: HIGH SCHOOL -->
+              <div class="timeline-item">
+                <div class="timeline-marker">
+                  <div class="marker-dot"></div>
+                </div>
+                <div class="timeline-card">
+                  <div class="timeline-meta">
+                    <span class="timeline-badge">Graduated (2024)</span>
+                    <span class="timeline-loc">Jakarta Barat</span>
+                  </div>
+                  <h4 class="timeline-title">Sekolah Kemurnian II</h4>
+                  <div class="timeline-subtitle">Elementary to Senior High School (TK — SMA)</div>
+                  <p class="timeline-desc">
+                    Completed my foundational education from Kindergarten through Senior High School at Sekolah Kemurnian II, building strong fundamentals in mathematics, analytical thinking, and teamwork before pursuing Computer Science at BINUS University.
+                  </p>
+                  <div class="timeline-tags">
+                    <span>Senior High School (SMA)</span>
+                    <span>Analytical Foundation</span>
+                    <span>Student Committee</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: REAL-WORLD & ORGANIZATIONAL EXPERIENCE -->
+          <div class="exp-column">
+            <div class="exp-col-header">
+              <span class="exp-col-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </span>
+              <h3 class="exp-col-title">Work &amp; Organizational Experience</h3>
+            </div>
+
+            <div class="timeline">
+              <!-- ITEM 3: NASI TIM MIMI -->
+              <div class="timeline-item">
+                <div class="timeline-marker">
+                  <div class="marker-dot current"></div>
+                </div>
+                <div class="timeline-card">
+                  <div class="timeline-meta">
+                    <span class="timeline-badge primary">2019 — Present</span>
+                    <span class="timeline-loc">Taman Ratu Indah, Jakarta Barat</span>
+                  </div>
+                  <h4 class="timeline-title">Digital Merchant Onboarding &amp; Customer Service</h4>
+                  <div class="timeline-subtitle">Nasi Tim Mimi (Blok AA2 No. 34)</div>
+                  <p class="timeline-desc">
+                    Grew up helping the family F&amp;B business since the 2019/COVID period, handling customer service and bringing the shop online:
+                  </p>
+                  <ul class="modal-bullet-list">
+                    <li><strong>Online Delivery Onboarding:</strong> Helped register and set up the store on digital food delivery platforms (<strong>GoFood / Gojek, GrabFood, and ShopeeFood</strong>) — organizing digital menu photos, pricing, and platform setup so customers could order online.</li>
+                    <li><strong>Customer Service &amp; Operations:</strong> Directly served customers, prepared and packed orders, and managed incoming online delivery orders during peak hours.</li>
+                  </ul>
+                  <div class="timeline-tags">
+                    <span>GoFood / Gojek Setup</span>
+                    <span>ShopeeFood &amp; GrabFood</span>
+                    <span>Customer Service</span>
+                    <span>F&amp;B Operations</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ITEM 4: EVOKE OLYMPUS -->
+              <div class="timeline-item">
+                <div class="timeline-marker">
+                  <div class="marker-dot"></div>
+                </div>
+                <div class="timeline-card">
+                  <div class="timeline-meta">
+                    <span class="timeline-badge">2023</span>
+                    <span class="timeline-loc">EVOKE Olympus Event</span>
+                  </div>
+                  <h4 class="timeline-title">Logistics &amp; Equipment Division (Perkap)</h4>
+                  <div class="timeline-subtitle">EVOKE Olympus Committee — Stage &amp; Field Operations</div>
+                  <p class="timeline-desc">
+                    Coordinated event equipment, stage setup, and on-site logistics with the committee team. Worked under tight event schedules and solved unexpected field issues quickly across divisions.
+                  </p>
+                  
+                  <!-- Event Photo Snippet -->
+                  <div class="exp-photo-preview">
+                    <img src="assets/images/exp-perkap.jpeg" alt="EVOKE Olympus Perkap Team" class="exp-img" loading="lazy">
+                    <span class="exp-caption">EVOKE Olympus Committee &amp; Stage Logistics Team (2023)</span>
+                  </div>
+
+                  <div class="timeline-tags">
+                    <span>Teamwork</span>
+                    <span>Event Logistics (Perkap)</span>
+                    <span>Field Problem Solving</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION: CONTACT & CONNECT
+         ====================================================================== -->
+    <section class="section-padding contact-section" id="contact">
+      <div class="container">
+        
+        <div class="contact-card">
+          <div class="contact-card-content">
+            <div class="section-kicker">GET IN TOUCH</div>
+            <h2 class="contact-heading">Let's Connect &amp; Collaborate</h2>
+            <p class="contact-desc">
+              I'm currently open to <strong>Data Analyst, Data Science, Business Intelligence, or Database</strong> internship and junior opportunities. Feel free to reach out via email or LinkedIn!
+            </p>
+
+            <div class="contact-channels">
+              
+              <!-- Direct Email Box -->
+              <div class="contact-channel-item">
+                <div class="channel-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div class="channel-info">
+                  <span class="channel-label">Email Address</span>
+                  <a href="mailto:francis.hasnawi@binus.ac.id" class="channel-value" id="emailText">francis.hasnawi@binus.ac.id</a>
+                </div>
+                <button class="btn btn-sm btn-outline copy-btn" id="copyEmailBtn" title="Copy email address">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  <span class="copy-text">Copy</span>
+                </button>
+              </div>
+
+              <!-- LinkedIn Profile Box -->
+              <div class="contact-channel-item">
+                <div class="channel-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2m1.39 9.74v-8.37H5.07v8.37h2.78z"/></svg>
+                </div>
+                <div class="channel-info">
+                  <span class="channel-label">LinkedIn</span>
+                  <a href="https://www.linkedin.com/in/francis-jordan-hasnawi-a90539326/" target="_blank" rel="noopener noreferrer" class="channel-value">linkedin.com/in/francis-jordan-hasnawi-a90539326</a>
+                </div>
+                <a href="https://www.linkedin.com/in/francis-jordan-hasnawi-a90539326/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">Open &rarr;</a>
+              </div>
+
+              <!-- GitHub Profile Box -->
+              <div class="contact-channel-item">
+                <div class="channel-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                </div>
+                <div class="channel-info">
+                  <span class="channel-label">GitHub</span>
+                  <a href="https://github.com/fjordh12" target="_blank" rel="noopener noreferrer" class="channel-value">github.com/fjordh12</a>
+                </div>
+                <a href="https://github.com/fjordh12" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">Open &rarr;</a>
+              </div>
+
+              <!-- Facebook Profile Box -->
+              <div class="contact-channel-item">
+                <div class="channel-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </div>
+                <div class="channel-info">
+                  <span class="channel-label">Facebook</span>
+                  <a href="https://www.facebook.com/jordan.hasnawi" target="_blank" rel="noopener noreferrer" class="channel-value">facebook.com/jordan.hasnawi</a>
+                </div>
+                <a href="https://www.facebook.com/jordan.hasnawi" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">Open &rarr;</a>
+              </div>
+
+            </div>
+
+            <div class="contact-btn-group">
+              <a href="mailto:francis.hasnawi@binus.ac.id?subject=Portfolio%20Inquiry%20-%20Francis%20Jordan" class="btn btn-primary btn-lg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                <span>Send Me an Email</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <span class="footer-brand">Francis Jordan Hasnawi</span>
+        <span class="footer-copy">&copy; 2026 &bull; Computer Science (Database Technology), BINUS University.</span>
+      </div>
+      
+      <div class="footer-right">
+        <div class="time-widget">
+          <span class="time-dot"></span>
+          <span>Jakarta (WIB): <strong id="liveJakartaTime">--:--:--</strong></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE CASE STUDY MODAL -->
+  <div class="modal-overlay" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      <div class="modal-scrollable-content" id="modalBody">
+        <!-- Injected dynamically via assets/js/main.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Feedback Notification -->
+  <div class="toast-notification" id="toast">Email copied to clipboard!</div>
+
+  <!-- JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
