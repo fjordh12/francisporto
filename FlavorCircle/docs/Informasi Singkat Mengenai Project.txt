@@ -1,0 +1,1 @@
+Kami dari Kelompok 5 mata kuliah HCI ingin mengumpulkan proyek kami yang berjudul "FlavorCircle". Proyek ini kami lampirkan dalam bentuk file .zip yang berisi komponen website seperti file HTML, CSS, dan JavaScript. Untuk mengakses website, Ibu dapat membuka file bernama "FlavorCircle.html" yang terdapat di dalam folder tersebut. Terima kasih atas perhatiannya.

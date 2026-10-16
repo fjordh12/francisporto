@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami — FlavorCircle & Tim Kelompok 5 HCI</title>
+    <link rel="icon" href="assets/images/FC_logo.png" type="image/png">
+    
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Core Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #18191c 0%, #2b211a 100%);
+            color: #ffffff;
+            padding: 4.5rem 0;
+            text-align: center;
+            border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+            position: relative;
+            overflow: hidden;
+        }
+        .about-badge {
+            background-color: rgba(226, 88, 34, 0.2);
+            color: #ff9d76;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 0.35rem 0.9rem;
+            border-radius: var(--radius-full);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(226, 88, 34, 0.4);
+        }
+        .about-hero-title {
+            font-size: clamp(2rem, 4vw, 2.85rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        .about-hero-title span {
+            color: #ff8c42;
+        }
+        .about-hero-subtitle {
+            max-width: 680px;
+            margin: 0 auto;
+            color: #d1d5db;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+        .story-img-frame {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            background-color: var(--secondary);
+        }
+        .story-img-frame img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+        }
+        .story-tag-box {
+            position: absolute;
+            bottom: 1.25rem;
+            left: 1.25rem;
+            background: rgba(24, 24, 27, 0.85);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .story-content h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            line-height: 1.25;
+        }
+        .story-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .value-card {
+            background-color: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-xs);
+        }
+        .value-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-border);
+            box-shadow: var(--shadow-md);
+        }
+        .value-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            background-color: var(--primary-subtle);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .value-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        .value-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.25rem;
+            margin-top: 2.5rem;
+        }
+        .team-card {
+            background-color: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem 1rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-xs);
+        }
+        .team-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-border);
+            box-shadow: var(--shadow-md);
+        }
+        .team-avatar-box {
+            width: 100px;
+            height: 100px;
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin-bottom: 1rem;
+            background-color: var(--bg-card-subtle);
+            border: 3px solid #fff;
+            box-shadow: var(--shadow-sm);
+        }
+        .team-avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .team-name {
+            font-size: 0.98rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+        }
+        .team-nim {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            background-color: var(--primary-subtle);
+            padding: 0.15rem 0.5rem;
+            border-radius: var(--radius-full);
+            margin-bottom: 0.5rem;
+        }
+        .team-role {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 0.85rem;
+        }
+        .team-socials {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+        .team-social-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--bg-card-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+        .team-social-btn:hover {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        /* Documentation Download Banner */
+        .pdf-banner {
+            background: linear-gradient(135deg, var(--secondary) 0%, #2c3e50 100%);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-top: 3.5rem;
+            box-shadow: var(--shadow-md);
+        }
+        .pdf-banner-content h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.4rem;
+        }
+        .pdf-banner-content p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 640px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .pdf-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+    
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand">
+                <img src="assets/images/FC_logo.png" alt="FlavorCircle Logo" class="brand-logo-img">
+                <div class="brand-text">
+                    <span class="brand-title">Flavor<span>Circle</span></span>
+                    <span class="brand-tag">Food & Community</span>
+                </div>
+            </a>
+
+            <div class="location-picker open-loc-modal">
+                <i class='bx bxs-map loc-pin'></i>
+                <div class="loc-details">
+                    <span class="loc-label">Antar ke:</span>
+                    <span class="loc-name">
+                        <span class="current-location-text">Binus University, Syahdan (Kemanggisan)</span>
+                        <i class='bx bx-chevron-down loc-change-icon'></i>
+                    </span>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Beranda</a>
+                <a href="index.html#categories" class="nav-link">Menu Kategori</a>
+                <a href="restaurant.html" class="nav-link">Mitra Resto</a>
+                <a href="groups.html" class="nav-link">Komunitas Foodie</a>
+                <a href="aboutFC.html" class="nav-link active">Tentang Kami</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="cart-btn open-cart-trigger">
+                    <i class='bx bx-shopping-bag'></i>
+                    <span>Pesanan</span>
+                    <span class="cart-count-badge">0</span>
+                </button>
+                <a href="loginPage.html" class="btn-primary-sm">
+                    <i class='bx bx-user'></i>
+                    <span>Masuk</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <span class="about-badge"><i class='bx bxs-graduation'></i> Human Computer Interaction Project • Kelompok 5</span>
+            <h1 class="about-hero-title">
+                Menghubungkan Cita Rasa,<br>
+                <span>Mempermudah Kebutuhan Kuliner Kampus.</span>
+            </h1>
+            <p class="about-hero-subtitle">
+                FlavorCircle lahir dari kolaborasi mahasiswa Computer Science Binus University untuk menghadirkan platform pesan makanan interaktif dan komunitas kuliner yang transparan, hemat, dan cepat.
+            </p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="section-wrapper">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-img-frame">
+                    <img src="assets/images/bannerfood.jpg" alt="FlavorCircle Campus Culinary">
+                    <div class="story-tag-box">
+                        <i class='bx bx-restaurant'></i> Berakar dari Dinamika Kampus Kemanggisan
+                    </div>
+                </div>
+
+                <div class="story-content">
+                    <span class="section-badge"><i class='bx bx-bulb'></i> Gagasan Awal</span>
+                    <h2>Diciptakan untuk Mengatasi Antrean & Kebingungan Kuliner</h2>
+                    <p>
+                        Setiap hari, ribuan mahasiswa menghadapi masalah yang sama: jeda kuliah yang singkat, antrean kantin yang padat, dan kebingungan memilih hidangan yang tepat sesuai selera dan anggaran.
+                    </p>
+                    <p>
+                        FlavorCircle merancang pengalaman antarmuka berbasis riset <em>Human Computer Interaction (HCI)</em>. Kami mengintegrasikan sistem penemuan menu cepat, kalkulasi biaya transparan, serta forum berbagi ulasan autentik tanpa manipulasi iklan.
+                    </p>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="index.html#categories" class="btn-primary-sm">
+                            <i class='bx bx-dish'></i> Jelajah Menu
+                        </a>
+                        <a href="#team" class="btn-outline-sm">
+                            <i class='bx bx-group'></i> Kenali Tim Kami
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="section-wrapper section-alt">
+        <div class="container">
+            <div class="section-head" style="justify-content: center; text-align: center;">
+                <div class="section-title-group" style="max-width: 600px;">
+                    <span class="section-badge"><i class='bx bx-shield-quarter'></i> Nilai & Komitmen</span>
+                    <h2 class="section-title">Kenapa Memilih FlavorCircle?</h2>
+                    <p class="section-subtitle">Tiga pilar utama yang menjadi dasar perancangan sistem dan layanan kami.</p>
+                </div>
+            </div>
+
+            <div class="values-grid">
+                <!-- Value 1 -->
+                <div class="value-card">
+                    <div class="value-icon"><i class='bx bx-brain'></i></div>
+                    <h3 class="value-title">Rekomendasi Cerdas Sesuai Selera</h3>
+                    <p class="value-desc">
+                        Algoritma pencarian mengkategorikan preferensi riwayat pemesanan pengguna, menyajikan saran menu harian yang hemat dan relevan tanpa membingungkan.
+                    </p>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="value-card">
+                    <div class="value-icon"><i class='bx bx-run'></i></div>
+                    <h3 class="value-title">Pengantaran Cepat & Ambil Sendiri</h3>
+                    <p class="value-desc">
+                        Fleksibilitas penuh: pilih antar kilat ke titik kumpul kampus atau gunakan fitur <em>Pick-up</em> mandiri untuk menghemat biaya pengiriman saat jam istirahat.
+                    </p>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="value-card">
+                    <div class="value-icon"><i class='bx bx-conversation'></i></div>
+                    <h3 class="value-title">Komunitas Foodie yang Jujur</h3>
+                    <p class="value-desc">
+                        Bukan sekadar aplikasi transaksi. FlavorCircle membangun ruang komunitas di mana pengguna berbagi foto, resep, dan review kuliner tanpa manipulasi rating.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section-wrapper" id="team">
+        <div class="container">
+            <div class="section-head" style="justify-content: center; text-align: center;">
+                <div class="section-title-group" style="max-width: 650px;">
+                    <span class="section-badge"><i class='bx bx-user-check'></i> Anggota Kelompok 5</span>
+                    <h2 class="section-title">Meet Our Project Team</h2>
+                    <p class="section-subtitle">Tim mahasiswa Computer Science Binus University yang merancang dan mengembangkan FlavorCircle.</p>
+                </div>
+            </div>
+
+            <div class="team-grid">
+                <!-- Member 1: Francis Jordan Hasnawi -->
+                <div class="team-card">
+                    <div class="team-avatar-box">
+                        <img src="assets/images/Francis.png" alt="Francis Jordan Hasnawi">
+                    </div>
+                    <h3 class="team-name">Francis Jordan H.</h3>
+                    <span class="team-nim">NIM: 2802412175</span>
+                    <span class="team-role">Frontend & System Architecture</span>
+                    <div class="team-socials">
+                        <a href="https://github.com" target="_blank" class="team-social-btn" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="team-social-btn" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                    </div>
+                </div>
+
+                <!-- Member 2: Jovan Reyhanta -->
+                <div class="team-card">
+                    <div class="team-avatar-box">
+                        <img src="assets/images/Jovan.png" alt="Jovan Reyhanta">
+                    </div>
+                    <h3 class="team-name">Jovan Reyhanta</h3>
+                    <span class="team-nim">NIM: 2802403920</span>
+                    <span class="team-role">UI/UX Interaction Specialist</span>
+                    <div class="team-socials">
+                        <a href="https://github.com" target="_blank" class="team-social-btn" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="team-social-btn" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                    </div>
+                </div>
+
+                <!-- Member 3: Kevin Reynald -->
+                <div class="team-card">
+                    <div class="team-avatar-box">
+                        <img src="assets/images/Kevin.png" alt="Kevin Reynald">
+                    </div>
+                    <h3 class="team-name">Kevin Reynald</h3>
+                    <span class="team-nim">NIM: 2802397672</span>
+                    <span class="team-role">Database & Backend Specialist</span>
+                    <div class="team-socials">
+                        <a href="https://github.com" target="_blank" class="team-social-btn" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="team-social-btn" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                    </div>
+                </div>
+
+                <!-- Member 4: Shane Sutjipto -->
+                <div class="team-card">
+                    <div class="team-avatar-box">
+                        <img src="assets/images/Shane.png" alt="Shane Sutjipto">
+                    </div>
+                    <h3 class="team-name">Shane Sutjipto</h3>
+                    <span class="team-nim">NIM: 2802400282</span>
+                    <span class="team-role">Product Flow & User Research</span>
+                    <div class="team-socials">
+                        <a href="https://github.com" target="_blank" class="team-social-btn" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="team-social-btn" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                    </div>
+                </div>
+
+                <!-- Member 5: William Chendra K. -->
+                <div class="team-card">
+                    <div class="team-avatar-box">
+                        <img src="assets/images/William.png" alt="William Chendra K.">
+                    </div>
+                    <h3 class="team-name">William Chendra K.</h3>
+                    <span class="team-nim">NIM: 2802399242</span>
+                    <span class="team-role">QA Testing & Community Media</span>
+                    <div class="team-socials">
+                        <a href="https://github.com" target="_blank" class="team-social-btn" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="team-social-btn" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PDF Documentation Download Banner -->
+            <div class="pdf-banner">
+                <div class="pdf-banner-content">
+                    <h3>Dokumentasi & Laporan Akademik HCI</h3>
+                    <p>Ingin melihat laporan komprehensif, analisis user persona, wireframing, dan evaluasi usability testing? Unduh dokumen PDF resmi proyek kami.</p>
+                </div>
+                <a href="docs/Kelompok 5 FlavorCircle.pdf" target="_blank" class="btn-primary-sm" style="background-color: var(--primary); padding: 0.85rem 1.4rem;">
+                    <i class='bx bxs-file-pdf'></i>
+                    <span>Unduh Laporan PDF</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/images/FC_logo.png" alt="FlavorCircle Logo">
+                        <span class="footer-logo-text">Flavor<span>Circle</span></span>
+                    </div>
+                    <p class="footer-about">
+                        Solusi terpadu pesan-antar kuliner kampus dan komunitas penikmat rasa Binus University.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Navigasi</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="restaurant.html">Mitra Restoran</a></li>
+                        <li><a href="groups.html">Komunitas Foodie</a></li>
+                        <li><a href="faq.html">FAQ & Bantuan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Menu Kategori</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="burger.html">Burger</a></li>
+                        <li><a href="pizza.html">Pizza</a></li>
+                        <li><a href="noodles.html">Mie & Ramen</a></li>
+                        <li><a href="sushi.html">Sushi</a></li>
+                        <li><a href="steak.html">Steak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Akademik</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#team">Anggota Kelompok 5</a></li>
+                        <li><a href="docs/Kelompok 5 FlavorCircle.pdf" target="_blank">PDF Paper HCI</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Kupon Mahasiswa</h4>
+                    <form class="newsletter-form">
+                        <div class="newsletter-input-group">
+                            <input type="email" placeholder="Email kampus" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn">Daftar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 FlavorCircle Indonesia. Proyek Human Computer Interaction Binus University.</p>
+                <div class="team-credit">
+                    Dikembangkan oleh <span>Kelompok 5</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Slide-over Cart Drawer -->
+    <div id="cartDrawerOverlay" class="cart-drawer-overlay close-cart-trigger"></div>
+    <aside id="cartDrawer" class="cart-drawer">
+        <div class="cart-drawer-head">
+            <h3 class="cart-drawer-title">
+                <i class='bx bx-shopping-bag' style="color: var(--primary);"></i>
+                <span>Pesanan Kamu <span id="cartDrawerCount">(0)</span></span>
+            </h3>
+            <button class="close-btn close-cart-trigger"><i class='bx bx-x'></i></button>
+        </div>
+        <div id="cartDrawerList" class="cart-items-list"></div>
+        <div class="cart-drawer-footer">
+            <div class="cart-breakdown-row">
+                <span>Subtotal Menu</span>
+                <span id="cartDrawerSubtotal" style="font-weight: 700;">Rp 0</span>
+            </div>
+            <div class="cart-breakdown-row">
+                <span>Biaya Antar Kampus</span>
+                <span style="font-weight: 700; color: var(--forest);">Rp 8.000</span>
+            </div>
+            <div class="cart-breakdown-row total-row">
+                <span>Estimasi Total</span>
+                <span id="cartDrawerTotal" style="color: var(--primary);">Rp 0</span>
+            </div>
+            <button class="checkout-btn" onclick="goToCheckout()">
+                <span>Lanjut ke Pembayaran</span>
+                <i class='bx bx-right-arrow-alt'></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Location Modal -->
+    <div id="locationModal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-head">
+                <h3 class="modal-title">Pilih Alamat Pengantaran</h3>
+                <button class="close-btn close-loc-modal"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="location-options-list">
+                    <div class="location-option-item" onclick="selectLocation('Binus University, Syahdan Campus (Kemanggisan)')">
+                        <i class='bx bxs-school'></i>
+                        <div>
+                            <div class="loc-opt-name">Binus Kampus Syahdan</div>
+                            <div class="loc-opt-desc">Kemanggisan, Palmerah, Jakarta Barat</div>
+                        </div>
+                    </div>
+                    <div class="location-option-item" onclick="selectLocation('Binus University, Anggrek Campus (Kebon Jeruk)')">
+                        <i class='bx bxs-school'></i>
+                        <div>
+                            <div class="loc-opt-name">Binus Kampus Anggrek</div>
+                            <div class="loc-opt-desc">Kebon Jeruk Raya No. 27, Jakarta Barat</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

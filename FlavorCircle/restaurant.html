@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitra Restoran Pilihan — FlavorCircle</title>
+    <link rel="icon" href="assets/images/FC_logo.png" type="image/png">
+    
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Core Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .restaurant-hero {
+            background: linear-gradient(135deg, #18191c 0%, #291f1a 100%);
+            color: #ffffff;
+            padding: 3.5rem 0 4rem 0;
+            text-align: center;
+            border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+            margin-bottom: 2.5rem;
+        }
+        .filter-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .filter-pills {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background-color: #fff;
+            border: 1px solid var(--border-light);
+            padding: 0.45rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+        .search-box-filter {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: #fff;
+            border: 1px solid var(--border-light);
+            padding: 0.45rem 1rem;
+            border-radius: var(--radius-full);
+            width: 280px;
+        }
+        .search-box-filter input {
+            flex: 1;
+            font-size: 0.88rem;
+        }
+    </style>
+    
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand">
+                <img src="assets/images/FC_logo.png" alt="FlavorCircle Logo" class="brand-logo-img">
+                <div class="brand-text">
+                    <span class="brand-title">Flavor<span>Circle</span></span>
+                    <span class="brand-tag">Food & Community</span>
+                </div>
+            </a>
+
+            <div class="location-picker open-loc-modal">
+                <i class='bx bxs-map loc-pin'></i>
+                <div class="loc-details">
+                    <span class="loc-label">Antar ke:</span>
+                    <span class="loc-name">
+                        <span class="current-location-text">Binus University, Syahdan (Kemanggisan)</span>
+                        <i class='bx bx-chevron-down loc-change-icon'></i>
+                    </span>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Beranda</a>
+                <a href="index.html#categories" class="nav-link">Menu Kategori</a>
+                <a href="restaurant.html" class="nav-link active">Mitra Resto</a>
+                <a href="groups.html" class="nav-link">Komunitas Foodie</a>
+                <a href="aboutFC.html" class="nav-link">Tentang Kami</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="cart-btn open-cart-trigger">
+                    <i class='bx bx-shopping-bag'></i>
+                    <span>Pesanan</span>
+                    <span class="cart-count-badge">0</span>
+                </button>
+                <a href="loginPage.html" class="btn-primary-sm">
+                    <i class='bx bx-user'></i>
+                    <span>Masuk</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="restaurant-hero">
+        <div class="container">
+            <span class="hero-eyebrow"><i class='bx bx-badge-check'></i> Mitra Terverifikasi FlavorCircle</span>
+            <h1 class="hero-title" style="margin-bottom: 0.5rem;">Katalog Restoran Pilihan</h1>
+            <p class="hero-subtitle" style="margin-bottom: 0;">
+                Nikmati beragam cita rasa dari resto legendaris kampus, bistro modern, hingga kedai kuliner autentik terdekat.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container" style="padding-bottom: 4rem;">
+        <!-- Filters -->
+        <div class="filter-bar">
+            <div class="filter-pills">
+                <button class="filter-btn active" onclick="filterResto('all', this)">Semua Resto</button>
+                <button class="filter-btn" onclick="filterResto('asian', this)">Asian & Chinese</button>
+                <button class="filter-btn" onclick="filterResto('western', this)">Western & Grill</button>
+                <button class="filter-btn" onclick="filterResto('fast', this)">Fast Food & Quick Bite</button>
+            </div>
+
+            <div class="search-box-filter">
+                <i class='bx bx-search' style="color: var(--text-light);"></i>
+                <input type="text" id="restoSearchInput" placeholder="Cari nama restoran..." oninput="searchResto(this.value)">
+            </div>
+        </div>
+
+        <!-- Restaurants Grid -->
+        <div class="restaurants-grid" id="restoGrid">
+            <!-- Resto 1 -->
+            <div class="restaurant-card" data-category="western">
+                <div class="restaurant-media">
+                    <img src="assets/images/res1.jpeg" alt="The Golden Fork">
+                    <span class="restaurant-offer-tag">Diskon 10%</span>
+                    <div class="restaurant-pill-rating">
+                        <i class='bx bxs-star'></i>
+                        <span>4.8 (340+)</span>
+                    </div>
+                </div>
+                <div class="restaurant-content">
+                    <h3 class="restaurant-title">The Golden Fork</h3>
+                    <div class="restaurant-meta">
+                        <span>Western & Asian Fusion</span>
+                        <span class="meta-dot"></span>
+                        <span>1.2 km</span>
+                        <span class="meta-dot"></span>
+                        <span>15-20 min</span>
+                    </div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.8rem; line-height: 1.5;">
+                        Pengalaman bersantap mewah dengan perpaduan hidangan Eropa dan Asia terfavorit di kawasan barat Jakarta.
+                    </p>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.8rem; border-top: 1px solid var(--border-subtle);">
+                        <div class="restaurant-hours" style="padding: 0; border: none;">
+                            <i class='bx bx-time-five'></i>
+                            <span>09:00 - 17:25 WIB</span>
+                        </div>
+                        <a href="steak.html" class="btn-primary-sm" style="padding: 0.4rem 0.85rem; font-size: 0.8rem;">
+                            Buka Menu
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resto 2 -->
+            <div class="restaurant-card" data-category="western">
+                <div class="restaurant-media">
+                    <img src="assets/images/res2.jpeg" alt="Urban Spice House">
+                    <span class="restaurant-offer-tag">Diskon 13%</span>
+                    <div class="restaurant-pill-rating">
+                        <i class='bx bxs-star'></i>
+                        <span>4.9 (480+)</span>
+                    </div>
+                </div>
+                <div class="restaurant-content">
+                    <h3 class="restaurant-title">Urban Spice House</h3>
+                    <div class="restaurant-meta">
+                        <span>Grill & Bold Spices</span>
+                        <span class="meta-dot"></span>
+                        <span>0.8 km</span>
+                        <span class="meta-dot"></span>
+                        <span>10-15 min</span>
+                    </div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.8rem; line-height: 1.5;">
+                        Pelopor sajian daging panggang berempah tebal dengan sentuhan saus bbq racikan chef berpengalaman.
+                    </p>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.8rem; border-top: 1px solid var(--border-subtle);">
+                        <div class="restaurant-hours" style="padding: 0; border: none;">
+                            <i class='bx bx-time-five'></i>
+                            <span>09:00 - 18:00 WIB</span>
+                        </div>
+                        <a href="burger.html" class="btn-primary-sm" style="padding: 0.4rem 0.85rem; font-size: 0.8rem;">
+                            Buka Menu
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resto 3 -->
+            <div class="restaurant-card" data-category="asian">
+                <div class="restaurant-media">
+                    <img src="assets/images/res3.jpeg" alt="Laoban Kitchen">
+                    <span class="restaurant-offer-tag">Diskon 15%</span>
+                    <div class="restaurant-pill-rating">
+                        <i class='bx bxs-star'></i>
+                        <span>4.7 (290+)</span>
+                    </div>
+                </div>
+                <div class="restaurant-content">
+                    <h3 class="restaurant-title">Laoban Kitchen</h3>
+                    <div class="restaurant-meta">
+                        <span>Dimsum & Handmade Noodles</span>
+                        <span class="meta-dot"></span>
+                        <span>1.5 km</span>
+                        <span class="meta-dot"></span>
+                        <span>20-25 min</span>
+                    </div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.8rem; line-height: 1.5;">
+                        Kedai dimsum dan mie buatan tangan segar setiap hari dengan kuah kaldu rempah hangat menggugah selera.
+                    </p>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.8rem; border-top: 1px solid var(--border-subtle);">
+                        <div class="restaurant-hours" style="padding: 0; border: none;">
+                            <i class='bx bx-time-five'></i>
+                            <span>09:00 - 18:30 WIB</span>
+                        </div>
+                        <a href="noodles.html" class="btn-primary-sm" style="padding: 0.4rem 0.85rem; font-size: 0.8rem;">
+                            Buka Menu
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resto 4 -->
+            <div class="restaurant-card" data-category="asian">
+                <div class="restaurant-media">
+                    <img src="assets/images/res4.jpeg" alt="Xiao Oriental Bistro">
+                    <span class="restaurant-offer-tag">Diskon 17%</span>
+                    <div class="restaurant-pill-rating">
+                        <i class='bx bxs-star'></i>
+                        <span>4.8 (190+)</span>
+                    </div>
+                </div>
+                <div class="restaurant-content">
+                    <h3 class="restaurant-title">Xiao Oriental Bistro</h3>
+                    <div class="restaurant-meta">
+                        <span>Rice Bowls & Street Delights</span>
+                        <span class="meta-dot"></span>
+                        <span>1.1 km</span>
+                        <span class="meta-dot"></span>
+                        <span>15-20 min</span>
+                    </div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.8rem; line-height: 1.5;">
+                        Rice bowl ayam krispi saus mentega dan aneka camilan gurih yang pas disantap bersama teman kampus.
+                    </p>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.8rem; border-top: 1px solid var(--border-subtle);">
+                        <div class="restaurant-hours" style="padding: 0; border: none;">
+                            <i class='bx bx-time-five'></i>
+                            <span>09:00 - 19:00 WIB</span>
+                        </div>
+                        <a href="sushi.html" class="btn-primary-sm" style="padding: 0.4rem 0.85rem; font-size: 0.8rem;">
+                            Buka Menu
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resto 5 -->
+            <div class="restaurant-card" data-category="fast">
+                <div class="restaurant-media">
+                    <img src="assets/images/res5.jpeg" alt="Laixin Quick Bite">
+                    <span class="restaurant-offer-tag">Diskon 21%</span>
+                    <div class="restaurant-pill-rating">
+                        <i class='bx bxs-star'></i>
+                        <span>4.9 (410+)</span>
+                    </div>
+                </div>
+                <div class="restaurant-content">
+                    <h3 class="restaurant-title">Laixin Express House</h3>
+                    <div class="restaurant-meta">
+                        <span>Fast Food & Crispy Snacks</span>
+                        <span class="meta-dot"></span>
+                        <span>0.6 km</span>
+                        <span class="meta-dot"></span>
+                        <span>10-15 min</span>
+                    </div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.8rem; line-height: 1.5;">
+                        Solusi santapan kilat saat mengejar deadline: burger jumbo, kentang krispi dan es teh manis jumbo.
+                    </p>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.8rem; border-top: 1px solid var(--border-subtle);">
+                        <div class="restaurant-hours" style="padding: 0; border: none;">
+                            <i class='bx bx-time-five'></i>
+                            <span>09:00 - 19:30 WIB</span>
+                        </div>
+                        <a href="burger.html" class="btn-primary-sm" style="padding: 0.4rem 0.85rem; font-size: 0.8rem;">
+                            Buka Menu
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/images/FC_logo.png" alt="FlavorCircle Logo">
+                        <span class="footer-logo-text">Flavor<span>Circle</span></span>
+                    </div>
+                    <p class="footer-about">
+                        Temukan berbagai kuliner pilihan sekitar Binus University dan nikmati layanan pesan-antar tercepat.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Navigasi</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="aboutFC.html">Tentang FlavorCircle</a></li>
+                        <li><a href="groups.html">Komunitas Foodie</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Kategori</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="burger.html">Burger</a></li>
+                        <li><a href="pizza.html">Pizza</a></li>
+                        <li><a href="noodles.html">Noodles</a></li>
+                        <li><a href="sushi.html">Sushi</a></li>
+                        <li><a href="steak.html">Steak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Akademik</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="aboutFC.html#team">Kelompok 5 HCI</a></li>
+                        <li><a href="docs/Kelompok 5 FlavorCircle.pdf" target="_blank">Unduh Paper PDF</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Buletin Kampus</h4>
+                    <form class="newsletter-form">
+                        <div class="newsletter-input-group">
+                            <input type="email" placeholder="Email kamu" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn">Daftar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 FlavorCircle Indonesia. Hak Cipta Dilindungi.</p>
+                <div class="team-credit">
+                    Dibuat oleh <span>Kelompok 5</span> Binus University
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cartDrawerOverlay" class="cart-drawer-overlay close-cart-trigger"></div>
+    <aside id="cartDrawer" class="cart-drawer">
+        <div class="cart-drawer-head">
+            <h3 class="cart-drawer-title">
+                <i class='bx bx-shopping-bag' style="color: var(--primary);"></i>
+                <span>Pesanan Kamu <span id="cartDrawerCount">(0)</span></span>
+            </h3>
+            <button class="close-btn close-cart-trigger"><i class='bx bx-x'></i></button>
+        </div>
+        <div id="cartDrawerList" class="cart-items-list"></div>
+        <div class="cart-drawer-footer">
+            <div class="cart-breakdown-row">
+                <span>Subtotal Menu</span>
+                <span id="cartDrawerSubtotal" style="font-weight: 700;">Rp 0</span>
+            </div>
+            <div class="cart-breakdown-row">
+                <span>Biaya Antar Kampus</span>
+                <span style="font-weight: 700; color: var(--forest);">Rp 8.000</span>
+            </div>
+            <div class="cart-breakdown-row total-row">
+                <span>Estimasi Total</span>
+                <span id="cartDrawerTotal" style="color: var(--primary);">Rp 0</span>
+            </div>
+            <button class="checkout-btn" onclick="goToCheckout()">
+                <span>Lanjut ke Pembayaran</span>
+                <i class='bx bx-right-arrow-alt'></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Location Modal -->
+    <div id="locationModal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-head">
+                <h3 class="modal-title">Pilih Alamat Pengantaran</h3>
+                <button class="close-btn close-loc-modal"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="location-options-list">
+                    <div class="location-option-item" onclick="selectLocation('Binus University, Syahdan Campus (Kemanggisan)')">
+                        <i class='bx bxs-school'></i>
+                        <div>
+                            <div class="loc-opt-name">Binus Kampus Syahdan</div>
+                            <div class="loc-opt-desc">Kemanggisan, Palmerah, Jakarta Barat</div>
+                        </div>
+                    </div>
+                    <div class="location-option-item" onclick="selectLocation('Binus University, Anggrek Campus (Kebon Jeruk)')">
+                        <i class='bx bxs-school'></i>
+                        <div>
+                            <div class="loc-opt-name">Binus Kampus Anggrek</div>
+                            <div class="loc-opt-desc">Kebon Jeruk Raya No. 27, Jakarta Barat</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterResto(cat, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const cards = document.querySelectorAll('#restoGrid .restaurant-card');
+            cards.forEach(card => {
+                if (cat === 'all' || card.getAttribute('data-category') === cat) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function searchResto(query) {
+            const q = query.toLowerCase();
+            const cards = document.querySelectorAll('#restoGrid .restaurant-card');
+            cards.forEach(card => {
+                const title = card.querySelector('.restaurant-title').innerText.toLowerCase();
+                const meta = card.querySelector('.restaurant-meta').innerText.toLowerCase();
+                if (title.includes(q) || meta.includes(q)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

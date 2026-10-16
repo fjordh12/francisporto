@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlavorCircle — Solusi Pesan Makanan Kampus & Komunitas Kuliner</title>
+    <link rel="icon" href="assets/images/FC_logo.png" type="image/png">
+    
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Core Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Main JS -->
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+    <!-- ============================== HEADER & NAVIGATION ============================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <!-- Brand -->
+            <a href="index.html" class="brand" aria-label="FlavorCircle Beranda">
+                <img src="assets/images/FC_logo.png" alt="FlavorCircle Logo" class="brand-logo-img">
+                <div class="brand-text">
+                    <span class="brand-title">Flavor<span>Circle</span></span>
+                    <span class="brand-tag">Food & Community</span>
+                </div>
+            </a>
+
+            <!-- Location Selector -->
+            <div class="location-picker open-loc-modal" title="Klik untuk mengganti alamat pengantaran">
+                <i class='bx bxs-map loc-pin'></i>
+                <div class="loc-details">
+                    <span class="loc-label">Antar ke:</span>
+                    <span class="loc-name">
+                        <span class="current-location-text">Binus University, Syahdan (Kemanggisan)</span>
+                        <i class='bx bx-chevron-down loc-change-icon'></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link active">Beranda</a>
+                <a href="#categories" class="nav-link">Menu Kategori</a>
+                <a href="restaurant.html" class="nav-link">Mitra Resto</a>
+                <a href="groups.html" class="nav-link">Komunitas Foodie</a>
+                <a href="aboutFC.html" class="nav-link">Tentang Kami</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+            </nav>
+
+            <!-- User Actions -->
+            <div class="header-actions">
+                <!-- Notification Bell -->
+                <button class="icon-btn" title="Notifikasi Promo" onclick="showToast('Kamu memiliki 3 voucher diskon aktif!', 'bx-bell')">
+                    <i class='bx bxs-bell'></i>
+                    <span class="badge-count">3</span>
+                </button>
+
+                <!-- Cart Button -->
+                <button class="cart-btn open-cart-trigger" aria-label="Buka Keranjang Pesanan">
+                    <i class='bx bx-shopping-bag'></i>
+                    <span>Pesanan</span>
+                    <span class="cart-count-badge">0</span>
+                </button>
+
+                <!-- Auth Buttons -->
+                <a href="loginPage.html" class="btn-primary-sm">
+                    <i class='bx bx-user'></i>
+                    <span>Masuk</span>
+                </a>
+
+                <!-- Mobile Hamburger Toggle -->
+                <button class="mobile-toggle open-cart-trigger" aria-label="Menu Navigasi">
+                    <i class='bx bx-menu'></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================== HERO SECTION ============================== -->
+    <section class="hero-section">
+        <div class="hero-overlay-graphic"></div>
+        <div class="container hero-content">
+            <div class="hero-eyebrow">
+                <i class='bx bxs-hot'></i>
+                <span>Kuliner Kampus & Resto Pilihan Jakarta</span>
+            </div>
+
+            <h1 class="hero-title">
+                Lapar di Tengah Kuliah atau Kerja?<br>
+                <span class="highlight">FlavorCircle Siap Antar Cepat.</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Temukan ratusan hidangan lezat mulai dari comfort food favorit mahasiswa, artisan pizza, burger juicy, hingga sushi segar dengan diskon eksklusif setiap hari.
+            </p>
+
+            <!-- Hero Search Input with Live Autocomplete -->
+            <div class="hero-search-wrapper">
+                <form class="hero-search-bar" onsubmit="return false;">
+                    <i class='bx bx-search-alt-2 search-icon'></i>
+                    <input type="text" id="heroSearchInput" class="hero-search-input" placeholder="Mau makan apa hari ini? (contoh: Burger, Rib Eye, Ramen, Sushi...)" autocomplete="off">
+                    <button type="button" id="heroSearchBtn" class="hero-search-btn">
+                        <span>Cari Makanan</span>
+                        <i class='bx bx-right-arrow-alt'></i>
+                    </button>
+                </form>
+
+                <!-- Autocomplete Dropdown -->
+                <div id="searchResultsDropdown" class="search-results-dropdown"></div>
+            </div>
+
+            <!-- Quick Category Tags -->
+            <div class="hero-quick-tags">
+                <span>Pencarian Cepat:</span>
+                <a href="burger.html" class="tag-pill">🍔 Burger</a>
+                <a href="pizza.html" class="tag-pill">🍕 Pizza</a>
+                <a href="noodles.html" class="tag-pill">🍜 Ramen & Udon</a>
+                <a href="sushi.html" class="tag-pill">🍣 Sushi Roll</a>
+                <a href="steak.html" class="tag-pill">🥩 Premium Steak</a>
+            </div>
+
+            <!-- Hero Stats Strip -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-num">350+</div>
+                    <div class="stat-label">Mitra Resto Pilihan</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">20 Menit</div>
+                    <div class="stat-label">Rata-rata Waktu Tiba</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">4.9 / 5.0</div>
+                    <div class="stat-label">Kepuasan Foodies</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== DAILY PROMO TICKER ============================== -->
+    <section class="promo-ticker-section" id="discounts">
+        <div class="container">
+            <div class="ticker-header">
+                <div class="ticker-title-group">
+                    <span class="ticker-badge"><i class='bx bxs-discount'></i> Flash Sale</span>
+                    <h2 class="ticker-headline">Hemat Hingga 35% OFF</h2>
+                </div>
+                <span class="ticker-validity">Berlaku s/d 15 Maret 2026</span>
+            </div>
+        </div>
+
+        <div class="ticker-track-wrapper">
+            <div class="ticker-track">
+                <!-- Promo Item 1 -->
+                <a href="burger.html" class="promo-card">
+                    <img src="assets/images/food1.jpg" alt="Special Burger Combo" class="promo-thumb">
+                    <div class="promo-info">
+                        <span class="promo-discount-badge">Hemat 10%</span>
+                        <span class="promo-item-name">Special Burger Combo</span>
+                        <span class="promo-remaining">Sisa 6 Hari Lagi</span>
+                    </div>
+                </a>
+
+                <!-- Promo Item 2 -->
+                <a href="noodles.html" class="promo-card">
+                    <img src="assets/images/food4.jpg" alt="Spicy Seafood Bowl" class="promo-thumb">
+                    <div class="promo-info">
+                        <span class="promo-discount-badge">Hemat 10%</span>
+                        <span class="promo-item-name">Spicy Seafood Bowl</span>
+                        <span class="promo-remaining">Sisa 6 Hari Lagi</span>
+                    </div>
+                </a>
+
+                <!-- Promo Item 3 -->
+                <a href="pizza.html" class="promo-card">
+                    <img src="assets/images/food2.jpg" alt="Crispy Flatbread Pizza" class="promo-thumb">
+                    <div class="promo-info">
+                        <span class="promo-discount-badge">Hemat 15%</span>
+                        <span class="promo-item-name">Crispy Flatbread Pizza</span>
+                        <span class="promo-remaining">Sisa 7 Hari Lagi</span>
+                    </div>
+                </a>
+
+                <!-- Promo Item 4 -->
+                <a href="steak.html" class="promo-card">
+                    <img src="assets/images/steak.jpeg" alt="Tenderloin Steak" class="promo-thumb">
+                    <div class="promo-info">
+                        <span class="promo-discount-badge">Hemat 18%</span>
+                        <span class="promo-item-name">Tenderloin Prime Cut</span>
+                        <span class="promo-remaining">Sisa 8 Hari Lagi</span>
+                    </div>
+                </a>
+
+                <!-- Promo Item 5 -->
+                <a href="noodles.html" class="promo-card">
+                    <img src="assets/images/food3.jpg" alt="Rich Broth Ramen" class="promo-thumb">
+                    <div class="promo-info">
+                        <span class="promo-discount-badge">Hemat 21%</span>
+                        <span class="promo-item-name">Rich Broth Ramen</span>
+                        <span class="promo-remaining">Sisa 9 Hari Lagi</span>
+                    </div>
+                </a>
+
+                <!-- Promo Item 6 -->
+                <a href="burger.html" class="promo-card">
+                    <img src="assets/images/burger.jpeg" alt="Double Beef Burger" class="promo-thumb">
+                    <div class="promo-info">
+                        <span class="promo-discount-badge">Hemat 25%</span>
+                        <span class="promo-item-name">Double Beef Burger</span>
+                        <span class="promo-remaining">Sisa 10 Hari Lagi</span>
+                    </div>
+                </a>
+
+                <!-- Promo Item 7 -->
+                <a href="restaurant.html" class="promo-card">
+                    <img src="assets/images/subway.jpeg" alt="Italian B.M.T Sub" class="promo-thumb">
+                    <div class="promo-info">
+                        <span class="promo-discount-badge">Hemat 35%</span>
+                        <span class="promo-item-name">Italian B.M.T Sub</span>
+                        <span class="promo-remaining">Sisa 11 Hari Lagi</span>
+                    </div>
+                </a>
+
+                <!-- Duplicate for seamless looping -->
+                <a href="burger.html" class="promo-card">
+                    <img src="assets/images/food1.jpg" alt="Special Burger Combo" class="promo-thumb">
+                    <div class="promo-info">
+                        <span class="promo-discount-badge">Hemat 10%</span>
+                        <span class="promo-item-name">Special Burger Combo</span>
+                        <span class="promo-remaining">Sisa 6 Hari Lagi</span>
+                    </div>
+                </a>
+                <a href="noodles.html" class="promo-card">
+                    <img src="assets/images/food4.jpg" alt="Spicy Seafood Bowl" class="promo-thumb">
+                    <div class="promo-info">
+                        <span class="promo-discount-badge">Hemat 10%</span>
+                        <span class="promo-item-name">Spicy Seafood Bowl</span>
+                        <span class="promo-remaining">Sisa 6 Hari Lagi</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== SEARCH BY CATEGORY ============================== -->
+    <section class="section-wrapper" id="categories">
+        <div class="container">
+            <div class="section-head">
+                <div class="section-title-group">
+                    <span class="section-badge"><i class='bx bx-category-alt'></i> Kategori Makanan</span>
+                    <h2 class="section-title">Pilih Berdasarkan Selera</h2>
+                    <p class="section-subtitle">Dari comfort food lokal hingga kuliner internasional, semua siap memanjakan lidahmu.</p>
+                </div>
+                <a href="restaurant.html" class="section-action-link">
+                    <span>Lihat Semua Menu</span>
+                    <i class='bx bx-right-arrow-alt'></i>
+                </a>
+            </div>
+
+            <div class="category-pills-grid">
+                <!-- Category 1: Burger -->
+                <a href="burger.html" class="category-card">
+                    <div class="category-img-box">
+                        <img src="assets/images/burger.jpeg" alt="Burger Category">
+                    </div>
+                    <h3 class="category-card-name">Burger</h3>
+                    <span class="category-card-count">5 Pilihan Menu</span>
+                </a>
+
+                <!-- Category 2: Pizza -->
+                <a href="pizza.html" class="category-card">
+                    <div class="category-img-box">
+                        <img src="assets/images/pizza.jpeg" alt="Pizza Category">
+                    </div>
+                    <h3 class="category-card-name">Pizza</h3>
+                    <span class="category-card-count">4 Pilihan Menu</span>
+                </a>
+
+                <!-- Category 3: Noodles -->
+                <a href="noodles.html" class="category-card">
+                    <div class="category-img-box">
+                        <img src="assets/images/noodles.jpeg" alt="Noodles Category">
+                    </div>
+                    <h3 class="category-card-name">Mie & Ramen</h3>
+                    <span class="category-card-count">4 Pilihan Menu</span>
+                </a>
+
+                <!-- Category 4: Sushi -->
+                <a href="sushi.html" class="category-card">
+                    <div class="category-img-box">
+                        <img src="assets/images/sushi.jpeg" alt="Sushi Category">
+                    </div>
+                    <h3 class="category-card-name">Sushi</h3>
+                    <span class="category-card-count">6 Pilihan Menu</span>
+                </a>
+
+                <!-- Category 5: Steak -->
+                <a href="steak.html" class="category-card">
+                    <div class="category-img-box">
+                        <img src="assets/images/steak.jpeg" alt="Steak Category">
+                    </div>
+                    <h3 class="category-card-name">Steak</h3>
+                    <span class="category-card-count">4 Pilihan Menu</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== POPULAR ITEMS ============================== -->
+    <section class="section-wrapper section-alt" id="popular">
+        <div class="container">
+            <div class="section-head">
+                <div class="section-title-group">
+                    <span class="section-badge"><i class='bx bxs-star'></i> Terlaris Minggu Ini</span>
+                    <h2 class="section-title">Menu Favorit Komunitas</h2>
+                    <p class="section-subtitle">Pilihan hidangan yang paling banyak dipesan dan mendapat ulasan bintang 5 dari foodies.</p>
+                </div>
+                <button class="btn-outline-sm open-cart-trigger">
+                    <i class='bx bx-cart'></i>
+                    <span>Cek Keranjang</span>
+                </button>
+            </div>
+
+            <div class="dishes-grid">
+                <!-- Dish 1 -->
+                <div class="dish-card">
+                    <div class="dish-media">
+                        <img src="assets/images/burger.jpeg" alt="Classic Cheese Burger">
+                        <span class="dish-badge promo">Best Seller</span>
+                    </div>
+                    <div class="dish-content">
+                        <span class="dish-category">Burger</span>
+                        <h3 class="dish-title">Classic Cheese Burger</h3>
+                        <p class="dish-desc">Beef patty juicy panggang dengan lelehan keju cheddar asli, saus rahasia dan roti brioche hangat.</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">Rp 25.000</span>
+                            <button class="add-cart-btn" onclick="addToCart({name: 'Classic Cheese Burger', price: 25000, img: 'assets/images/burger.jpeg', category: 'Burger'})">
+                                <i class='bx bx-plus'></i>
+                                <span>Pesan</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 2 -->
+                <div class="dish-card">
+                    <div class="dish-media">
+                        <img src="assets/images/st1.jpeg" alt="Classic Rib Eye">
+                        <span class="dish-badge">Chef's Pick</span>
+                    </div>
+                    <div class="dish-content">
+                        <span class="dish-category">Steak</span>
+                        <h3 class="dish-title">Classic Rib Eye Steak</h3>
+                        <p class="dish-desc">Potongan ribeye beraroma butter garlic herb, disajikan dengan french fries renyah dan blackpepper sauce.</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">Rp 57.000</span>
+                            <button class="add-cart-btn" onclick="addToCart({name: 'Classic Rib Eye Steak', price: 57000, img: 'assets/images/st1.jpeg', category: 'Steak'})">
+                                <i class='bx bx-plus'></i>
+                                <span>Pesan</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 3 -->
+                <div class="dish-card">
+                    <div class="dish-media">
+                        <img src="assets/images/s3.jpeg" alt="Ebi Nigiri Sushi">
+                        <span class="dish-badge">Fresh Daily</span>
+                    </div>
+                    <div class="dish-content">
+                        <span class="dish-category">Sushi</span>
+                        <h3 class="dish-title">Ebi Nigiri (2 Pcs)</h3>
+                        <p class="dish-desc">Udang segar kualitas sashimi di atas nasi sushi Jepang pulen dengan sentuhan wasabi dan soyu.</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">Rp 22.000</span>
+                            <button class="add-cart-btn" onclick="addToCart({name: 'Ebi Nigiri (2 Pcs)', price: 22000, img: 'assets/images/s3.jpeg', category: 'Sushi'})">
+                                <i class='bx bx-plus'></i>
+                                <span>Pesan</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 4 -->
+                <div class="dish-card">
+                    <div class="dish-media">
+                        <img src="assets/images/p3.jpg" alt="Meat Lovers Pizza">
+                        <span class="dish-badge promo">Hemat 15%</span>
+                    </div>
+                    <div class="dish-content">
+                        <span class="dish-category">Pizza</span>
+                        <h3 class="dish-title">Meat Lovers Pizza</h3>
+                        <p class="dish-desc">Topping berlimpah beef pepperoni, sosis asap, minced beef, dan mozzarella mulur khas Napoli.</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">Rp 32.000</span>
+                            <button class="add-cart-btn" onclick="addToCart({name: 'Meat Lovers Pizza', price: 32000, img: 'assets/images/p3.jpg', category: 'Pizza'})">
+                                <i class='bx bx-plus'></i>
+                                <span>Pesan</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 5 -->
+                <div class="dish-card">
+                    <div class="dish-media">
+                        <img src="assets/images/n1.jpg" alt="Spicy Ramen">
+                    </div>
+                    <div class="dish-content">
+                        <span class="dish-category">Mie & Ramen</span>
+                        <h3 class="dish-title">Spicy Tonkotsu Ramen</h3>
+                        <p class="dish-desc">Kuah kaldu gurih pedas kaya rempah dengan mie kenyal, ajitsuke tamago, dan potongan daging empuk.</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">Rp 60.000</span>
+                            <button class="add-cart-btn" onclick="addToCart({name: 'Spicy Tonkotsu Ramen', price: 60000, img: 'assets/images/n1.jpg', category: 'Noodles'})">
+                                <i class='bx bx-plus'></i>
+                                <span>Pesan</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 6 -->
+                <div class="dish-card">
+                    <div class="dish-media">
+                        <img src="assets/images/b1.jpeg" alt="Spicy Jalapeño Burger">
+                    </div>
+                    <div class="dish-content">
+                        <span class="dish-category">Burger</span>
+                        <h3 class="dish-title">Spicy Jalapeño Burger</h3>
+                        <p class="dish-desc">Paduan sensasi pedas jalapeño salsa, spicy mayo, lelehan keju dan double beef patty nikmat.</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">Rp 68.000</span>
+                            <button class="add-cart-btn" onclick="addToCart({name: 'Spicy Jalapeño Burger', price: 68000, img: 'assets/images/b1.jpeg', category: 'Burger'})">
+                                <i class='bx bx-plus'></i>
+                                <span>Pesan</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 7 -->
+                <div class="dish-card">
+                    <div class="dish-media">
+                        <img src="assets/images/sushi.jpeg" alt="California Roll">
+                    </div>
+                    <div class="dish-content">
+                        <span class="dish-category">Sushi</span>
+                        <h3 class="dish-title">California Sushi Roll (8 Pcs)</h3>
+                        <p class="dish-desc">Kani stick, alpukat segar, kyuri mentimun jepang berbalut tobiko oranye renyah gurih.</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">Rp 27.000</span>
+                            <button class="add-cart-btn" onclick="addToCart({name: 'California Sushi Roll (8 Pcs)', price: 27000, img: 'assets/images/sushi.jpeg', category: 'Sushi'})">
+                                <i class='bx bx-plus'></i>
+                                <span>Pesan</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 8 -->
+                <div class="dish-card">
+                    <div class="dish-media">
+                        <img src="assets/images/p4.jpeg" alt="Truffle Pizza">
+                        <span class="dish-badge">Premium</span>
+                    </div>
+                    <div class="dish-content">
+                        <span class="dish-category">Pizza</span>
+                        <h3 class="dish-title">Black Truffle Mushroom Pizza</h3>
+                        <p class="dish-desc">Aroma white truffle oil mewah dengan portobello mushrooms, parmesan renyah dan crust sourdough.</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">Rp 48.000</span>
+                            <button class="add-cart-btn" onclick="addToCart({name: 'Black Truffle Mushroom Pizza', price: 48000, img: 'assets/images/p4.jpeg', category: 'Pizza'})">
+                                <i class='bx bx-plus'></i>
+                                <span>Pesan</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== PARTNER RESTAURANTS ============================== -->
+    <section class="section-wrapper" id="restaurants">
+        <div class="container">
+            <div class="section-head">
+                <div class="section-title-group">
+                    <span class="section-badge"><i class='bx bx-store-alt'></i> Merchant Resmi</span>
+                    <h2 class="section-title">Restoran Pilihan Sekitar Kampus</h2>
+                    <p class="section-subtitle">Dapur terpercaya dengan standar kebersihan tinggi dan penilaian prima dari pelanggan setia.</p>
+                </div>
+                <a href="restaurant.html" class="section-action-link">
+                    <span>Lihat Semua Restoran</span>
+                    <i class='bx bx-right-arrow-alt'></i>
+                </a>
+            </div>
+
+            <div class="restaurants-grid">
+                <!-- Restaurant 1 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-media">
+                        <img src="assets/images/res1.jpeg" alt="The Golden Fork">
+                        <span class="restaurant-offer-tag">Diskon 10%</span>
+                        <div class="restaurant-pill-rating">
+                            <i class='bx bxs-star'></i>
+                            <span>4.8 (340+)</span>
+                        </div>
+                    </div>
+                    <div class="restaurant-content">
+                        <h3 class="restaurant-title">The Golden Fork</h3>
+                        <div class="restaurant-meta">
+                            <span>Western & Asian Fusion</span>
+                            <span class="meta-dot"></span>
+                            <span>1.2 km</span>
+                            <span class="meta-dot"></span>
+                            <span>15-20 min</span>
+                        </div>
+                        <div class="restaurant-hours">
+                            <i class='bx bx-time-five'></i>
+                            <span>Buka: 09:00 - 17:25 WIB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurant 2 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-media">
+                        <img src="assets/images/res2.jpeg" alt="Urban Spice House">
+                        <span class="restaurant-offer-tag">Diskon 13%</span>
+                        <div class="restaurant-pill-rating">
+                            <i class='bx bxs-star'></i>
+                            <span>4.9 (480+)</span>
+                        </div>
+                    </div>
+                    <div class="restaurant-content">
+                        <h3 class="restaurant-title">Urban Spice House</h3>
+                        <div class="restaurant-meta">
+                            <span>Grill & Bold Spices</span>
+                            <span class="meta-dot"></span>
+                            <span>0.8 km</span>
+                            <span class="meta-dot"></span>
+                            <span>10-15 min</span>
+                        </div>
+                        <div class="restaurant-hours">
+                            <i class='bx bx-time-five'></i>
+                            <span>Buka: 09:00 - 18:00 WIB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurant 3 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-media">
+                        <img src="assets/images/res3.jpeg" alt="Laoban Kitchen">
+                        <span class="restaurant-offer-tag">Diskon 15%</span>
+                        <div class="restaurant-pill-rating">
+                            <i class='bx bxs-star'></i>
+                            <span>4.7 (290+)</span>
+                        </div>
+                    </div>
+                    <div class="restaurant-content">
+                        <h3 class="restaurant-title">Laoban Kitchen</h3>
+                        <div class="restaurant-meta">
+                            <span>Dimsum & Handmade Noodles</span>
+                            <span class="meta-dot"></span>
+                            <span>1.5 km</span>
+                            <span class="meta-dot"></span>
+                            <span>20-25 min</span>
+                        </div>
+                        <div class="restaurant-hours">
+                            <i class='bx bx-time-five'></i>
+                            <span>Buka: 09:00 - 18:30 WIB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== HOW FLAVORCIRCLE WORKS ============================== -->
+    <section class="section-wrapper section-alt">
+        <div class="container">
+            <div class="section-head" style="justify-content: center; text-align: center; margin-bottom: 3rem;">
+                <div class="section-title-group" style="max-width: 650px;">
+                    <span class="section-badge"><i class='bx bx-check-shield'></i> Mudah & Terpercaya</span>
+                    <h2 class="section-title">Bagaimana Cara Kerjanya?</h2>
+                    <p class="section-subtitle">Dari pemesanan hingga makanan tiba di meja kamu, semua dirancang ringkas dalam 5 langkah sederhana.</p>
+                </div>
+            </div>
+
+            <div class="steps-grid">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-icon-wrapper">
+                        <i class='bx bxs-map-pin'></i>
+                    </div>
+                    <span class="step-number">Langkah 01</span>
+                    <h3 class="step-name">Tentukan Lokasi</h3>
+                    <p class="step-desc">Pilih kampus Binus atau kost tempatmu berada agar kurir tiba tepat waktu.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-icon-wrapper">
+                        <i class='bx bx-dish'></i>
+                    </div>
+                    <span class="step-number">Langkah 02</span>
+                    <h3 class="step-name">Pilih Makanan</h3>
+                    <p class="step-desc">Jelajahi menu favorit dari resto terdekat dengan promo hemat harian.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-icon-wrapper">
+                        <i class='bx bx-wallet-alt'></i>
+                    </div>
+                    <span class="step-number">Langkah 03</span>
+                    <h3 class="step-name">Bayar Fleksibel</h3>
+                    <p class="step-desc">Dukungan GoPay, OVO, DANA, BCA VA, hingga Cash on Delivery.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-card">
+                    <div class="step-icon-wrapper">
+                        <i class='bx bx-cycling'></i>
+                    </div>
+                    <span class="step-number">Langkah 04</span>
+                    <h3 class="step-name">Antar Cepat</h3>
+                    <p class="step-desc">Pantau estimasi perjalanan makanan yang tetap hangat dan steril.</p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="step-card">
+                    <div class="step-icon-wrapper">
+                        <i class='bx bxs-conversation'></i>
+                    </div>
+                    <span class="step-number">Langkah 05</span>
+                    <h3 class="step-name">Review & Berbagi</h3>
+                    <p class="step-desc">Beri rating dan bagikan tips kuliner seru di Komunitas FlavorCircle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== COMMUNITY SPOTLIGHT ============================== -->
+    <section class="section-wrapper" id="community">
+        <div class="container">
+            <div class="section-head">
+                <div class="section-title-group">
+                    <span class="section-badge"><i class='bx bxs-group'></i> Komunitas Foodies</span>
+                    <h2 class="section-title">Cerita & Ulasan Pengguna</h2>
+                    <p class="section-subtitle">Bergabung dengan ribuan mahasiswa dan penikmat kuliner yang saling berbagi rekomendasi lezat.</p>
+                </div>
+                <a href="groups.html" class="btn-primary-sm">
+                    <i class='bx bx-user-plus'></i>
+                    <span>Masuk ke Komunitas</span>
+                </a>
+            </div>
+
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-card-head">
+                        <div class="reviewer-profile">
+                            <div class="reviewer-avatar">CJ</div>
+                            <div class="reviewer-info">
+                                <span class="reviewer-name">Cindy J.</span>
+                                <span class="reviewer-meta">Binus Kemanggisan • 42 mnt lalu</span>
+                            </div>
+                        </div>
+                        <div class="review-rating-stars">★★★★★</div>
+                    </div>
+                    <p class="review-quote">
+                        "Classic Cheese Burger-nya beneran nagih! Kejunya meleleh sempurna dan patty-nya juicy banget. Cocok banget pas rehat matkul siang."
+                    </p>
+                    <div class="review-card-footer">
+                        <span class="review-dish-tag">Classic Cheese Burger</span>
+                        <span><i class='bx bx-check-shield' style="color: var(--forest);"></i> Terverifikasi</span>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-card-head">
+                        <div class="reviewer-profile">
+                            <div class="reviewer-avatar">LW</div>
+                            <div class="reviewer-info">
+                                <span class="reviewer-name">Lynn Woods</span>
+                                <span class="reviewer-meta">Food Blogger Jakarta • 1 jam lalu</span>
+                            </div>
+                        </div>
+                        <div class="review-rating-stars">★★★★★</div>
+                    </div>
+                    <p class="review-quote">
+                        "Pengantaran kilat hanya 18 menit ke kosan! Rib Eye-nya masih hangat dengan blackpepper gravy yang pas, nggak pelit bumbu."
+                    </p>
+                    <div class="review-card-footer">
+                        <span class="review-dish-tag">Classic Rib Eye Steak</span>
+                        <span><i class='bx bx-check-shield' style="color: var(--forest);"></i> Terverifikasi</span>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-card-head">
+                        <div class="reviewer-profile">
+                            <div class="reviewer-avatar">BM</div>
+                            <div class="reviewer-info">
+                                <span class="reviewer-name">Bonnie M.</span>
+                                <span class="reviewer-meta">Pencinta Sushi • 3 jam lalu</span>
+                            </div>
+                        </div>
+                        <div class="review-rating-stars">★★★★★</div>
+                    </div>
+                    <p class="review-quote">
+                        "Ebi Nigiri dan California Roll-nya fresh luar biasa. Kemasan box-nya rapi dan ada soyu plus wasabi asli. Definitely reorder!"
+                    </p>
+                    <div class="review-card-footer">
+                        <span class="review-dish-tag">Ebi Nigiri & Sushi</span>
+                        <span><i class='bx bx-check-shield' style="color: var(--forest);"></i> Terverifikasi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== TRUST & SAFETY BANNER ============================== -->
+    <div class="container">
+        <div class="trust-strip">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon"><i class='bx bxs-badge-check'></i></div>
+                    <h4 class="trust-title">Jaminan Higienis & Halal</h4>
+                    <p class="trust-desc">Seluruh mitra resto melalui verifikasi dapur ketat dan standar keamanan pangan bersertifikat.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class='bx bxs-timer'></i></div>
+                    <h4 class="trust-title">Garansi Tiba Tepat Waktu</h4>
+                    <p class="trust-desc">Pengantaran rata-rata 20 menit dengan kompensasi voucher jika kurir mengalami keterlambatan.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class='bx bxs-credit-card-front'></i></div>
+                    <h4 class="trust-title">Pembayaran 100% Aman</h4>
+                    <p class="trust-desc">Enkripsi transaksi resmi perbankan nasional, e-wallet instan, serta kemudahan COD tanpa ribet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================== FOOTER ============================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <!-- Brand Info -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/images/FC_logo.png" alt="FlavorCircle Logo">
+                        <span class="footer-logo-text">Flavor<span>Circle</span></span>
+                    </div>
+                    <p class="footer-about">
+                        Platform pemesanan kuliner dan ekosistem komunitas foodie yang menghubungkan mahasiswa, warga kampus, dan restoran lokal pilihan dengan pengalaman pesan-antar cepat, hemat, dan bersahabat.
+                    </p>
+                    <div class="footer-social-links">
+                        <a href="#" class="social-icon-btn" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                        <a href="#" class="social-icon-btn" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+                        <a href="#" class="social-icon-btn" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+                        <a href="#" class="social-icon-btn" aria-label="TikTok"><i class='bx bxl-tiktok'></i></a>
+                    </div>
+                </div>
+
+                <!-- Navigation Columns -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Jelajah Menu</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="burger.html">Burger Pilihan</a></li>
+                        <li><a href="pizza.html">Pizza & Calzone</a></li>
+                        <li><a href="noodles.html">Ramen & Udon</a></li>
+                        <li><a href="sushi.html">Sushi & Sashimi</a></li>
+                        <li><a href="steak.html">Steak & Ribs</a></li>
+                        <li><a href="restaurant.html">Semua Restoran</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Perusahaan</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="aboutFC.html">Tentang FlavorCircle</a></li>
+                        <li><a href="aboutFC.html#team">Tim Kelompok 5</a></li>
+                        <li><a href="groups.html">Komunitas Foodie</a></li>
+                        <li><a href="faq.html">Pusat Bantuan & FAQ</a></li>
+                        <li><a href="docs/Kelompok 5 FlavorCircle.pdf" target="_blank">Laporan Proyek HCI (PDF)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Wilayah Antar</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#">Binus Syahdan</a></li>
+                        <li><a href="#">Binus Anggrek</a></li>
+                        <li><a href="#">Binus Kijang</a></li>
+                        <li><a href="#">Kemanggisan & Palmerah</a></li>
+                        <li><a href="#">Kebon Jeruk & Slipi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Column -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Kupon & Promo</h4>
+                    <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 0.85rem;">Dapatkan voucher diskon mingguan langsung di email kamu.</p>
+                    <form class="newsletter-form">
+                        <div class="newsletter-input-group">
+                            <input type="email" placeholder="Email kampus / pribadi" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn">Daftar</button>
+                        </div>
+                        <span class="newsletter-hint">*Kami tidak mengirim spam. Berhenti berlangganan kapan saja.</span>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>© 2026 FlavorCircle Indonesia. Hak Cipta Dilindungi.</p>
+                <div class="team-credit">
+                    <span>Proyek Human Computer Interaction (HCI)</span> • Dikerjakan oleh <span>Kelompok 5</span> Binus University
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================== SLIDE-OVER CART DRAWER ============================== -->
+    <div id="cartDrawerOverlay" class="cart-drawer-overlay close-cart-trigger"></div>
+    <aside id="cartDrawer" class="cart-drawer" aria-label="Keranjang Belanja">
+        <div class="cart-drawer-head">
+            <h3 class="cart-drawer-title">
+                <i class='bx bx-shopping-bag' style="color: var(--primary);"></i>
+                <span>Pesanan Kamu <span id="cartDrawerCount">(0)</span></span>
+            </h3>
+            <button class="close-btn close-cart-trigger" aria-label="Tutup Keranjang">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
+
+        <!-- Items List -->
+        <div id="cartDrawerList" class="cart-items-list">
+            <!-- Dynamic items rendered by main.js -->
+        </div>
+
+        <!-- Footer with Pricing & Checkout -->
+        <div class="cart-drawer-footer">
+            <div class="cart-breakdown-row">
+                <span>Subtotal Menu</span>
+                <span id="cartDrawerSubtotal" style="font-weight: 700;">Rp 0</span>
+            </div>
+            <div class="cart-breakdown-row">
+                <span>Biaya Antar Kampus</span>
+                <span style="font-weight: 700; color: var(--forest);">Rp 8.000</span>
+            </div>
+            <div class="cart-breakdown-row total-row">
+                <span>Estimasi Total</span>
+                <span id="cartDrawerTotal" style="color: var(--primary);">Rp 0</span>
+            </div>
+            <button class="checkout-btn" onclick="goToCheckout()">
+                <span>Lanjut ke Pembayaran</span>
+                <i class='bx bx-right-arrow-alt'></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- ============================== LOCATION SELECTOR MODAL ============================== -->
+    <div id="locationModal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-head">
+                <h3 class="modal-title">Pilih Alamat Pengantaran</h3>
+                <button class="close-btn close-loc-modal" aria-label="Tutup Modal">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+                    Pilih titik pengantaran favorit agar kurir dapat menemukan lokasi kamu dengan mudah:
+                </p>
+                <div class="location-options-list">
+                    <div class="location-option-item" onclick="selectLocation('Binus University, Syahdan Campus (Kemanggisan)')">
+                        <i class='bx bxs-school'></i>
+                        <div>
+                            <div class="loc-opt-name">Binus Kampus Syahdan</div>
+                            <div class="loc-opt-desc">Jl. K H. Syahdan No. 9, Kemanggisan, Palmerah, Jakarta Barat</div>
+                        </div>
+                    </div>
+                    <div class="location-option-item" onclick="selectLocation('Binus University, Anggrek Campus (Kebon Jeruk)')">
+                        <i class='bx bxs-school'></i>
+                        <div>
+                            <div class="loc-opt-name">Binus Kampus Anggrek</div>
+                            <div class="loc-opt-desc">Jl. Kebon Jeruk Raya No. 27, Kebon Jeruk, Jakarta Barat</div>
+                        </div>
+                    </div>
+                    <div class="location-option-item" onclick="selectLocation('Binus University, Kijang Campus')">
+                        <i class='bx bxs-school'></i>
+                        <div>
+                            <div class="loc-opt-name">Binus Kampus Kijang</div>
+                            <div class="loc-opt-desc">Jl. Kemanggisan Ilir III No. 45, Palmerah, Jakarta Barat</div>
+                        </div>
+                    </div>
+                    <div class="location-option-item" onclick="selectLocation('Kost & Residence Sekitar Kemanggisan')">
+                        <i class='bx bxs-home-heart'></i>
+                        <div>
+                            <div class="loc-opt-name">Area Kost Kemanggisan</div>
+                            <div class="loc-opt-desc">Pengantaran langsung ke lobi atau gerbang kost mahasiswa</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

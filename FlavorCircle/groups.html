@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komunitas Foodie — FlavorCircle</title>
+    <link rel="icon" href="assets/images/FC_logo.png" type="image/png">
+    
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Core Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .community-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr 300px;
+            gap: 2rem;
+            padding: 2.5rem 0 5rem 0;
+            align-items: flex-start;
+        }
+
+        /* Sidebars */
+        .comm-sidebar {
+            background-color: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-xs);
+            position: sticky;
+            top: 94px;
+        }
+
+        .comm-sidebar-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .comm-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .comm-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.65rem 0.85rem;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            color: var(--text-main);
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .comm-item:hover,
+        .comm-item.active {
+            background-color: var(--primary-subtle);
+            color: var(--primary);
+        }
+
+        .comm-member-count {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            background-color: var(--bg-card-subtle);
+            padding: 0.15rem 0.5rem;
+            border-radius: var(--radius-full);
+        }
+
+        /* Post Creation Box */
+        .create-post-card {
+            background-color: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+            box-shadow: var(--shadow-xs);
+            margin-bottom: 1.5rem;
+        }
+
+        .create-post-head {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .user-avatar-sm {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-full);
+            background-color: var(--primary-subtle);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .create-post-input {
+            flex: 1;
+            background-color: var(--bg-card-subtle);
+            border: 1px solid var(--border-light);
+            padding: 0.65rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.88rem;
+        }
+
+        .create-post-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 0.85rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .post-action-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            padding: 0.4rem 0.75rem;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .post-action-btn:hover {
+            background-color: var(--bg-card-subtle);
+            color: var(--primary);
+        }
+
+        /* Feed Post Cards */
+        .feed-post-card {
+            background-color: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-xs);
+            margin-bottom: 1.5rem;
+        }
+
+        .feed-author-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .author-details {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .author-info h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--secondary);
+            line-height: 1.1;
+        }
+
+        .author-info span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .feed-post-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        .feed-media-frame {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            margin-bottom: 1rem;
+            background-color: #1c1d22;
+        }
+
+        .feed-media-frame img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+        }
+
+        .feed-interactions {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            padding: 0.75rem 0;
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            margin-bottom: 1rem;
+        }
+
+        .interaction-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .interaction-btn:hover,
+        .interaction-btn.liked {
+            color: var(--primary);
+        }
+
+        /* Comment Section */
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .comment-item {
+            background-color: var(--bg-card-subtle);
+            border-radius: var(--radius-md);
+            padding: 0.65rem 0.9rem;
+            font-size: 0.85rem;
+        }
+
+        .comment-item strong {
+            color: var(--secondary);
+            margin-right: 0.4rem;
+        }
+
+        .add-comment-row {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .comment-input {
+            flex: 1;
+            background-color: #fff;
+            border: 1px solid var(--border-light);
+            padding: 0.5rem 0.9rem;
+            border-radius: var(--radius-full);
+            font-size: 0.82rem;
+        }
+
+        .comment-submit-btn {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 0.45rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* Right Sidebar Members */
+        .suggested-user-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .suggested-user-row:last-child {
+            border-bottom: none;
+        }
+
+        .suggested-user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            overflow: hidden;
+        }
+
+        .suggested-user-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .suggested-user-sub {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .btn-follow-toggle {
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 700;
+            background-color: var(--primary-subtle);
+            color: var(--primary);
+            border: 1px solid var(--primary-border);
+            transition: all var(--transition-fast);
+        }
+
+        .btn-follow-toggle.following {
+            background-color: var(--forest-subtle);
+            color: var(--forest);
+            border-color: #86efac;
+        }
+
+        @media (max-width: 1024px) {
+            .community-layout {
+                grid-template-columns: 1fr;
+            }
+            .comm-sidebar {
+                position: static;
+            }
+        }
+    </style>
+    
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand">
+                <img src="assets/images/FC_logo.png" alt="FlavorCircle Logo" class="brand-logo-img">
+                <div class="brand-text">
+                    <span class="brand-title">Flavor<span>Circle</span></span>
+                    <span class="brand-tag">Food & Community</span>
+                </div>
+            </a>
+
+            <div class="location-picker open-loc-modal">
+                <i class='bx bxs-map loc-pin'></i>
+                <div class="loc-details">
+                    <span class="loc-label">Antar ke:</span>
+                    <span class="loc-name">
+                        <span class="current-location-text">Binus University, Syahdan (Kemanggisan)</span>
+                        <i class='bx bx-chevron-down loc-change-icon'></i>
+                    </span>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Beranda</a>
+                <a href="index.html#categories" class="nav-link">Menu Kategori</a>
+                <a href="restaurant.html" class="nav-link">Mitra Resto</a>
+                <a href="groups.html" class="nav-link active">Komunitas Foodie</a>
+                <a href="aboutFC.html" class="nav-link">Tentang Kami</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="cart-btn open-cart-trigger">
+                    <i class='bx bx-shopping-bag'></i>
+                    <span>Pesanan</span>
+                    <span class="cart-count-badge">0</span>
+                </button>
+                <a href="loginPage.html" class="btn-primary-sm">
+                    <i class='bx bx-user'></i>
+                    <span>Masuk</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Community Feed Layout -->
+    <div class="container community-layout">
+        
+        <!-- Left Sidebar: My Communities -->
+        <aside class="comm-sidebar">
+            <div class="comm-sidebar-title">
+                <span>Komunitas Saya</span>
+                <span class="badge-count" style="position: static;">4</span>
+            </div>
+            <div class="comm-list">
+                <div class="comm-item active" onclick="switchCommunity('Anak Kos Kemanggisan', this)">
+                    <span>Anak Kos Kemanggisan</span>
+                    <span class="comm-member-count">1.2k</span>
+                </div>
+                <div class="comm-item" onclick="switchCommunity('Game & Eat Hub', this)">
+                    <span>Game & Eat Hub</span>
+                    <span class="comm-member-count">764</span>
+                </div>
+                <div class="comm-item" onclick="switchCommunity('Travel to Eat', this)">
+                    <span>Travel to Eat</span>
+                    <span class="comm-member-count">804</span>
+                </div>
+                <div class="comm-item" onclick="switchCommunity('Late Night Cravings', this)">
+                    <span>Late Night Cravings</span>
+                    <span class="comm-member-count">490</span>
+                </div>
+            </div>
+
+            <button class="btn-outline-sm" style="width: 100%; justify-content: center; margin-top: 1.5rem;" onclick="showToast('Fitur buat komunitas baru akan segera hadir!', 'bx-plus')">
+                <i class='bx bx-plus-circle'></i>
+                <span>Buat Grup Baru</span>
+            </button>
+        </aside>
+
+        <!-- Center Column: Post Creator & Feed -->
+        <main class="comm-feed-main">
+            <!-- Create Post Box -->
+            <div class="create-post-card">
+                <div class="create-post-head">
+                    <div class="user-avatar-sm">FJ</div>
+                    <input type="text" id="postInput" class="create-post-input" placeholder="Rekomendasikan makanan lezat yang baru kamu coba...">
+                </div>
+                <div class="create-post-actions">
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="post-action-btn" onclick="showToast('Foto makanan berhasil dilampirkan!', 'bx-image')">
+                            <i class='bx bx-image' style="color: var(--primary);"></i>
+                            <span>Foto</span>
+                        </button>
+                        <button class="post-action-btn" onclick="showToast('Tag lokasi resto terpilih!', 'bx-map')">
+                            <i class='bx bx-map-pin' style="color: #3b82f6;"></i>
+                            <span>Resto</span>
+                        </button>
+                    </div>
+                    <button class="btn-primary-sm" style="padding: 0.45rem 1.1rem; font-size: 0.85rem;" onclick="publishPost()">
+                        <span>Posting</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Feed Post 1 -->
+            <article class="feed-post-card">
+                <div class="feed-author-row">
+                    <div class="author-details">
+                        <div class="user-avatar-sm" style="background-color: #fee2e2; color: #dc2626;">AR</div>
+                        <div class="author-info">
+                            <h4>Arya Pratama</h4>
+                            <span>Binus Kemanggisan • Di Wanmin Restaurant • 25 mnt lalu</span>
+                        </div>
+                    </div>
+                    <button class="icon-btn" style="width: 32px; height: 32px;" title="Opsi"><i class='bx bx-dots-horizontal-rounded'></i></button>
+                </div>
+
+                <div class="feed-post-text">
+                    Ini nasi goreng seafood di Wanmin Restaurant rek.. Porsinya melimpah, aroma smoky wok hei-nya juara banget! Wajib coba yang pedas level 2 pas jam kosong kuliah.
+                </div>
+
+                <div class="feed-media-frame">
+                    <img src="assets/images/bannerfood.jpg" alt="Nasi Goreng Seafood Wanmin">
+                </div>
+
+                <div class="feed-interactions">
+                    <div class="interaction-btn" onclick="toggleLike(this)">
+                        <i class='bx bx-heart' style="font-size: 1.25rem;"></i>
+                        <span class="like-counter">142 Suka</span>
+                    </div>
+                    <div class="interaction-btn">
+                        <i class='bx bx-comment' style="font-size: 1.25rem;"></i>
+                        <span>5 Komentar</span>
+                    </div>
+                    <div class="interaction-btn" style="margin-left: auto;" onclick="showToast('Tautan postingan berhasil disalin!', 'bx-share-alt')">
+                        <i class='bx bx-share-alt' style="font-size: 1.25rem;"></i>
+                        <span>Bagikan</span>
+                    </div>
+                </div>
+
+                <!-- Comments Thread -->
+                <div class="comments-list" id="commentsThread1">
+                    <div class="comment-item">
+                        <strong>Cindy_J:</strong> Wah porsinya pas buat berdua nggak sih? Mau coba siang ini!
+                    </div>
+                    <div class="comment-item">
+                        <strong>BudiSantoso:</strong> Asli, sambal matahnya juga enak bener di situ!
+                    </div>
+                    <div class="comment-item">
+                        <strong>Kevin_R:</strong> Harganya ramah kantong mahasiswa banget, mantul.
+                    </div>
+                </div>
+
+                <!-- Add Comment Input -->
+                <form class="add-comment-row" onsubmit="addComment(event, 'commentsThread1')">
+                    <input type="text" class="comment-input" placeholder="Tulis komentar kamu..." required>
+                    <button type="submit" class="comment-submit-btn">Kirim</button>
+                </form>
+            </article>
+
+            <!-- Feed Post 2 -->
+            <article class="feed-post-card">
+                <div class="feed-author-row">
+                    <div class="author-details">
+                        <div class="user-avatar-sm" style="background-color: #fef3c7; color: #b45309;">MS</div>
+                        <div class="author-info">
+                            <h4>Michael Shane</h4>
+                            <span>Foodie Palmerah • Di The Golden Fork • 2 jam lalu</span>
+                        </div>
+                    </div>
+                    <button class="icon-btn" style="width: 32px; height: 32px;" title="Opsi"><i class='bx bx-dots-horizontal-rounded'></i></button>
+                </div>
+
+                <div class="feed-post-text">
+                    Ngerayain kelar ujian matkul HCI bareng temen sekelas di The Golden Fork! Classic Rib Eye Steak-nya juicy parah dan blackpepper sauce-nya berasa rich banget. 10/10 recommended!
+                </div>
+
+                <div class="feed-media-frame">
+                    <img src="assets/images/st1.jpeg" alt="Classic Rib Eye Steak">
+                </div>
+
+                <div class="feed-interactions">
+                    <div class="interaction-btn" onclick="toggleLike(this)">
+                        <i class='bx bx-heart' style="font-size: 1.25rem;"></i>
+                        <span class="like-counter">98 Suka</span>
+                    </div>
+                    <div class="interaction-btn">
+                        <i class='bx bx-comment' style="font-size: 1.25rem;"></i>
+                        <span>2 Komentar</span>
+                    </div>
+                    <div class="interaction-btn" style="margin-left: auto;" onclick="showToast('Tautan postingan berhasil disalin!', 'bx-share-alt')">
+                        <i class='bx bx-share-alt' style="font-size: 1.25rem;"></i>
+                        <span>Bagikan</span>
+                    </div>
+                </div>
+
+                <div class="comments-list" id="commentsThread2">
+                    <div class="comment-item">
+                        <strong>William_C:</strong> Mantap rek, dagingnya empuk banget pas dimakan!
+                    </div>
+                </div>
+
+                <form class="add-comment-row" onsubmit="addComment(event, 'commentsThread2')">
+                    <input type="text" class="comment-input" placeholder="Tulis komentar kamu..." required>
+                    <button type="submit" class="comment-submit-btn">Kirim</button>
+                </form>
+            </article>
+        </main>
+
+        <!-- Right Sidebar: Suggested Groups & Foodies -->
+        <aside class="comm-sidebar">
+            <div class="comm-sidebar-title">
+                <span>Rekomendasi Komunitas</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem;">
+                <div class="suggested-user-row">
+                    <div class="suggested-user-info">
+                        <div class="user-avatar-sm" style="width: 32px; height: 32px; font-size: 0.75rem;">🌶️</div>
+                        <div>
+                            <div class="suggested-user-name">Pencari Makanan Pedas</div>
+                            <div class="suggested-user-sub">1.8k anggota</div>
+                        </div>
+                    </div>
+                    <button class="btn-follow-toggle" onclick="toggleJoin(this)">Gabung</button>
+                </div>
+
+                <div class="suggested-user-row">
+                    <div class="suggested-user-info">
+                        <div class="user-avatar-sm" style="width: 32px; height: 32px; font-size: 0.75rem;">☕</div>
+                        <div>
+                            <div class="suggested-user-name">Kafe & Kopi Nugas</div>
+                            <div class="suggested-user-sub">2.4k anggota</div>
+                        </div>
+                    </div>
+                    <button class="btn-follow-toggle" onclick="toggleJoin(this)">Gabung</button>
+                </div>
+
+                <div class="suggested-user-row">
+                    <div class="suggested-user-info">
+                        <div class="user-avatar-sm" style="width: 32px; height: 32px; font-size: 0.75rem;">🍣</div>
+                        <div>
+                            <div class="suggested-user-name">Sushi Lovers Kemanggisan</div>
+                            <div class="suggested-user-sub">940 anggota</div>
+                        </div>
+                    </div>
+                    <button class="btn-follow-toggle" onclick="toggleJoin(this)">Gabung</button>
+                </div>
+            </div>
+
+            <div class="comm-sidebar-title">
+                <span>Foodies yang Mungkin Kamu Kenal</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+                <div class="suggested-user-row">
+                    <div class="suggested-user-info">
+                        <div class="user-avatar-sm" style="width: 32px; height: 32px; font-size: 0.75rem;">GR</div>
+                        <div>
+                            <div class="suggested-user-name">Grace Kurnia</div>
+                            <div class="suggested-user-sub">Reviewer Aktif</div>
+                        </div>
+                    </div>
+                    <button class="btn-follow-toggle" onclick="toggleFollow(this)">Ikuti</button>
+                </div>
+
+                <div class="suggested-user-row">
+                    <div class="suggested-user-info">
+                        <div class="user-avatar-sm" style="width: 32px; height: 32px; font-size: 0.75rem;">JR</div>
+                        <div>
+                            <div class="suggested-user-name">Jovan R.</div>
+                            <div class="suggested-user-sub">UI Designer & Foodie</div>
+                        </div>
+                    </div>
+                    <button class="btn-follow-toggle" onclick="toggleFollow(this)">Ikuti</button>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom" style="padding-top: 0;">
+                <p>© 2026 FlavorCircle Community. Forum Resmi Mahasiswa & Penikmat Kuliner.</p>
+                <div class="team-credit">Proyek HCI • <span>Kelompok 5</span> Binus University</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cartDrawerOverlay" class="cart-drawer-overlay close-cart-trigger"></div>
+    <aside id="cartDrawer" class="cart-drawer">
+        <div class="cart-drawer-head">
+            <h3 class="cart-drawer-title">
+                <i class='bx bx-shopping-bag' style="color: var(--primary);"></i>
+                <span>Pesanan Kamu <span id="cartDrawerCount">(0)</span></span>
+            </h3>
+            <button class="close-btn close-cart-trigger"><i class='bx bx-x'></i></button>
+        </div>
+        <div id="cartDrawerList" class="cart-items-list"></div>
+        <div class="cart-drawer-footer">
+            <div class="cart-breakdown-row">
+                <span>Subtotal Menu</span>
+                <span id="cartDrawerSubtotal" style="font-weight: 700;">Rp 0</span>
+            </div>
+            <div class="cart-breakdown-row">
+                <span>Biaya Antar Kampus</span>
+                <span style="font-weight: 700; color: var(--forest);">Rp 8.000</span>
+            </div>
+            <div class="cart-breakdown-row total-row">
+                <span>Estimasi Total</span>
+                <span id="cartDrawerTotal" style="color: var(--primary);">Rp 0</span>
+            </div>
+            <button class="checkout-btn" onclick="goToCheckout()">
+                <span>Lanjut ke Pembayaran</span>
+                <i class='bx bx-right-arrow-alt'></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Location Modal -->
+    <div id="locationModal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-head">
+                <h3 class="modal-title">Pilih Alamat Pengantaran</h3>
+                <button class="close-btn close-loc-modal"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="location-options-list">
+                    <div class="location-option-item" onclick="selectLocation('Binus University, Syahdan Campus (Kemanggisan)')">
+                        <i class='bx bxs-school'></i>
+                        <div>
+                            <div class="loc-opt-name">Binus Kampus Syahdan</div>
+                            <div class="loc-opt-desc">Kemanggisan, Palmerah, Jakarta Barat</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Community Script -->
+    <script>
+        function toggleLike(btn) {
+            btn.classList.toggle('liked');
+            const icon = btn.querySelector('i');
+            const counter = btn.querySelector('.like-counter');
+            let currentLikes = parseInt(counter.innerText);
+            if (btn.classList.contains('liked')) {
+                icon.className = 'bx bxs-heart';
+                counter.innerText = (currentLikes + 1) + " Suka";
+            } else {
+                icon.className = 'bx bx-heart';
+                counter.innerText = (currentLikes - 1) + " Suka";
+            }
+        }
+
+        function addComment(e, threadId) {
+            e.preventDefault();
+            const input = e.target.querySelector('input');
+            const thread = document.getElementById(threadId);
+            if (input && input.value.trim()) {
+                const commentEl = document.createElement('div');
+                commentEl.className = 'comment-item';
+                commentEl.innerHTML = `<strong>Francis_J:</strong> ${input.value.trim()}`;
+                thread.appendChild(commentEl);
+                showToast("Komentar kamu berhasil dikirim!", "bx-chat");
+                input.value = "";
+            }
+        }
+
+        function publishPost() {
+            const input = document.getElementById('postInput');
+            if (!input.value.trim()) {
+                showToast("Tulis sesuatu terlebih dahulu sebelum posting!", "bx-error");
+                return;
+            }
+            showToast("Postingan kamu berhasil dibagikan ke komunitas!", "bx-check-circle");
+            input.value = "";
+        }
+
+        function toggleJoin(btn) {
+            if (btn.innerText === "Gabung") {
+                btn.innerText = "Tergabung";
+                btn.classList.add('following');
+                showToast("Kamu telah bergabung dengan komunitas ini!", "bx-user-check");
+            } else {
+                btn.innerText = "Gabung";
+                btn.classList.remove('following');
+                showToast("Kamu keluar dari komunitas ini.", "bx-user-x");
+            }
+        }
+
+        function toggleFollow(btn) {
+            if (btn.innerText === "Ikuti") {
+                btn.innerText = "Mengikuti";
+                btn.classList.add('following');
+                showToast("Berhasil mengikuti pengguna ini!", "bx-user-check");
+            } else {
+                btn.innerText = "Ikuti";
+                btn.classList.remove('following');
+            }
+        }
+
+        function switchCommunity(name, el) {
+            document.querySelectorAll('.comm-item').forEach(i => i.classList.remove('active'));
+            el.classList.add('active');
+            showToast(`Memuat feed dari komunitas: ${name}`, 'bx-conversation');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusat Bantuan & FAQ — FlavorCircle</title>
+    <link rel="icon" href="assets/images/FC_logo.png" type="image/png">
+    
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Core Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .faq-hero {
+            background: linear-gradient(135deg, #18191c 0%, #2b201a 100%);
+            color: #ffffff;
+            padding: 3.5rem 0 4rem 0;
+            text-align: center;
+            border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+            margin-bottom: 3rem;
+        }
+
+        .faq-accordion-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding-bottom: 4rem;
+        }
+
+        .faq-card {
+            background-color: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-xs);
+        }
+
+        .faq-card:hover {
+            border-color: var(--primary-border);
+        }
+
+        .faq-card.open {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question-btn {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-align: left;
+            cursor: pointer;
+            gap: 1rem;
+        }
+
+        .faq-question-btn i {
+            font-size: 1.25rem;
+            color: var(--primary);
+            transition: transform var(--transition-fast);
+            flex-shrink: 0;
+        }
+
+        .faq-card.open .faq-question-btn i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+            padding: 0 1.5rem;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            background-color: var(--bg-card-subtle);
+        }
+
+        .faq-card.open .faq-answer {
+            max-height: 200px;
+            padding: 0 1.5rem 1.25rem 1.5rem;
+        }
+
+        /* Support Box */
+        .support-cta-box {
+            max-width: 800px;
+            margin: 0 auto 5rem auto;
+            background: linear-gradient(135deg, var(--secondary) 0%, #27272a 100%);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .support-cta-box {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+    
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand">
+                <img src="assets/images/FC_logo.png" alt="FlavorCircle Logo" class="brand-logo-img">
+                <div class="brand-text">
+                    <span class="brand-title">Flavor<span>Circle</span></span>
+                    <span class="brand-tag">Pusat Bantuan</span>
+                </div>
+            </a>
+
+            <div class="location-picker open-loc-modal">
+                <i class='bx bxs-map loc-pin'></i>
+                <div class="loc-details">
+                    <span class="loc-label">Antar ke:</span>
+                    <span class="loc-name">
+                        <span class="current-location-text">Binus University, Syahdan (Kemanggisan)</span>
+                        <i class='bx bx-chevron-down loc-change-icon'></i>
+                    </span>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Beranda</a>
+                <a href="index.html#categories" class="nav-link">Menu Kategori</a>
+                <a href="restaurant.html" class="nav-link">Mitra Resto</a>
+                <a href="groups.html" class="nav-link">Komunitas Foodie</a>
+                <a href="aboutFC.html" class="nav-link">Tentang Kami</a>
+                <a href="faq.html" class="nav-link active">FAQ</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="cart-btn open-cart-trigger">
+                    <i class='bx bx-shopping-bag'></i>
+                    <span>Pesanan</span>
+                    <span class="cart-count-badge">0</span>
+                </button>
+                <a href="loginPage.html" class="btn-primary-sm">
+                    <i class='bx bx-user'></i>
+                    <span>Masuk</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- FAQ Hero -->
+    <section class="faq-hero">
+        <div class="container">
+            <span class="hero-eyebrow"><i class='bx bx-help-circle'></i> Pertanyaan Umum & Bantuan</span>
+            <h1 class="hero-title" style="margin-bottom: 0.5rem;">Ada Pertanyaan? We Got You Covered!</h1>
+            <p class="hero-subtitle" style="margin-bottom: 1.5rem;">
+                Temukan panduan lengkap mengenai pemesanan makanan, biaya pengantaran kampus, pembayaran e-wallet, dan program diskon.
+            </p>
+
+            <div style="max-width: 500px; margin: 0 auto; position: relative;">
+                <input type="text" id="faqSearchInput" placeholder="Ketik kata kunci (contoh: ongkir, COD, diskon, cancel)..." style="width: 100%; background: #fff; padding: 0.75rem 1.25rem; border-radius: var(--radius-full); font-size: 0.92rem; color: var(--text-main);" oninput="filterFaq(this.value)">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordions -->
+    <main class="container">
+        <div class="faq-accordion-list" id="faqList">
+            
+            <div class="faq-card open">
+                <button class="faq-question-btn" onclick="toggleFaq(this)">
+                    <span>Berapa biaya pengantaran untuk area kampus Binus?</span>
+                    <i class='bx bx-chevron-down'></i>
+                </button>
+                <div class="faq-answer">
+                    Biaya pengantaran standar sekitar area kampus Binus (Syahdan, Anggrek, Kijang) dan kost Palmerah adalah flat Rp 8.000. Untuk pesanan di atas Rp 75.000, nikmati promo gratis ongkir dengan kupon promo mingguan.
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <button class="faq-question-btn" onclick="toggleFaq(this)">
+                    <span>Bagaimana cara memesan makanan untuk diambil sendiri (Pick-up)?</span>
+                    <i class='bx bx-chevron-down'></i>
+                </button>
+                <div class="faq-answer">
+                    Kamu bisa memilih opsi "Ambil Sendiri / Pick-up" pada halaman pesanan untuk menghemat 100% biaya ongkir. Makanan akan disiapkan oleh resto mitra dan kamu bisa langsung mengambilnya di konter saat jam istirahat.
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <button class="faq-question-btn" onclick="toggleFaq(this)">
+                    <span>Metode pembayaran apa saja yang didukung FlavorCircle?</span>
+                    <i class='bx bx-chevron-down'></i>
+                </button>
+                <div class="faq-answer">
+                    Kami mendukung GoPay, OVO, DANA, BCA Virtual Account, serta Tunai (Cash on Delivery / COD) langsung kepada kurir saat makanan tiba di lobi kampus atau gerbang kost kamu.
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <button class="faq-question-btn" onclick="toggleFaq(this)">
+                    <span>Berapa lama rata-rata waktu pengantaran makanan?</span>
+                    <i class='bx bx-chevron-down'></i>
+                </button>
+                <div class="faq-answer">
+                    Rata-rata waktu pengantaran mitra kurir kami berkisar antara 15 hingga 25 menit tergantung jarak restoran dan kepadatan jam makan siang. Status persiapan makanan dapat dipantau langsung secara real-time.
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <button class="faq-question-btn" onclick="toggleFaq(this)">
+                    <span>Bagaimana jika pesanan saya tidak sesuai atau rusak saat tiba?</span>
+                    <i class='bx bx-chevron-down'></i>
+                </button>
+                <div class="faq-answer">
+                    FlavorCircle memberikan Garansi Kepuasan 100%. Cukup foto pesanan yang tidak sesuai dan kirimkan ke tim bantuan kami melalui nomor WhatsApp resmi untuk penggantian hidangan atau pengembalian dana instan.
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <button class="faq-question-btn" onclick="toggleFaq(this)">
+                    <span>Bagaimana cara bergabung sebagai anggota Komunitas Foodie?</span>
+                    <i class='bx bx-chevron-down'></i>
+                </button>
+                <div class="faq-answer">
+                    Kunjungi menu "Komunitas Foodie", pilih grup yang sesuai minat kamu (seperti Anak Kos Kemanggisan, Game & Eat, dll.), lalu klik tombol "Gabung". Kamu bisa langsung berdiskusi dan berbagi rekomendasi santapan lezat.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Support CTA -->
+        <div class="support-cta-box">
+            <div>
+                <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.35rem;">Masih Memiliki Pertanyaan?</h3>
+                <p style="font-size: 0.88rem; color: #cbd5e1;">Tim Customer Care & Komunitas FlavorCircle siap membantu setiap hari pukul 08:00 - 22:00 WIB.</p>
+            </div>
+            <a href="https://wa.me/" target="_blank" class="btn-primary-sm" style="padding: 0.75rem 1.4rem;">
+                <i class='bx bxl-whatsapp' style="font-size: 1.25rem;"></i>
+                <span>Hubungi Dukungan</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2026 FlavorCircle Indonesia. Hak Cipta Dilindungi.</p>
+                <div class="team-credit">Proyek HCI • <span>Kelompok 5</span> Binus University</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cartDrawerOverlay" class="cart-drawer-overlay close-cart-trigger"></div>
+    <aside id="cartDrawer" class="cart-drawer">
+        <div class="cart-drawer-head">
+            <h3 class="cart-drawer-title">
+                <i class='bx bx-shopping-bag' style="color: var(--primary);"></i>
+                <span>Pesanan Kamu <span id="cartDrawerCount">(0)</span></span>
+            </h3>
+            <button class="close-btn close-cart-trigger"><i class='bx bx-x'></i></button>
+        </div>
+        <div id="cartDrawerList" class="cart-items-list"></div>
+        <div class="cart-drawer-footer">
+            <div class="cart-breakdown-row">
+                <span>Subtotal Menu</span>
+                <span id="cartDrawerSubtotal" style="font-weight: 700;">Rp 0</span>
+            </div>
+            <div class="cart-breakdown-row">
+                <span>Biaya Antar Kampus</span>
+                <span style="font-weight: 700; color: var(--forest);">Rp 8.000</span>
+            </div>
+            <div class="cart-breakdown-row total-row">
+                <span>Estimasi Total</span>
+                <span id="cartDrawerTotal" style="color: var(--primary);">Rp 0</span>
+            </div>
+            <button class="checkout-btn" onclick="goToCheckout()">
+                <span>Lanjut ke Pembayaran</span>
+                <i class='bx bx-right-arrow-alt'></i>
+            </button>
+        </div>
+    </aside>
+
+    <script>
+        function toggleFaq(btn) {
+            const card = btn.closest('.faq-card');
+            card.classList.toggle('open');
+        }
+
+        function filterFaq(query) {
+            const q = query.toLowerCase();
+            const cards = document.querySelectorAll('.faq-card');
+            cards.forEach(card => {
+                const question = card.querySelector('.faq-question-btn span').innerText.toLowerCase();
+                const answer = card.querySelector('.faq-answer').innerText.toLowerCase();
+                if (question.includes(q) || answer.includes(q)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Mie & Ramen — FlavorCircle</title>
+    <link rel="icon" href="assets/images/FC_logo.png" type="image/png">
+    
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .category-hero {
+            background: linear-gradient(135deg, #18191c 0%, #2b1f14 100%);
+            color: #ffffff;
+            padding: 3rem 0;
+            border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+            margin-bottom: 2.5rem;
+        }
+
+        .category-nav-strip {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .cat-tab {
+            padding: 0.55rem 1.2rem;
+            border-radius: var(--radius-full);
+            background-color: #fff;
+            border: 1px solid var(--border-light);
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            white-space: nowrap;
+            transition: all var(--transition-fast);
+        }
+
+        .cat-tab:hover,
+        .cat-tab.active {
+            background-color: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+    </style>
+    
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand">
+                <img src="assets/images/FC_logo.png" alt="FlavorCircle Logo" class="brand-logo-img">
+                <div class="brand-text">
+                    <span class="brand-title">Flavor<span>Circle</span></span>
+                    <span class="brand-tag">Menu Explorer</span>
+                </div>
+            </a>
+
+            <div class="location-picker open-loc-modal">
+                <i class='bx bxs-map loc-pin'></i>
+                <div class="loc-details">
+                    <span class="loc-label">Antar ke:</span>
+                    <span class="loc-name">
+                        <span class="current-location-text">Binus University, Syahdan (Kemanggisan)</span>
+                        <i class='bx bx-chevron-down loc-change-icon'></i>
+                    </span>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Beranda</a>
+                <a href="noodles.html" class="nav-link active">Menu Kategori</a>
+                <a href="restaurant.html" class="nav-link">Mitra Resto</a>
+                <a href="groups.html" class="nav-link">Komunitas Foodie</a>
+                <a href="aboutFC.html" class="nav-link">Tentang Kami</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="cart-btn open-cart-trigger">
+                    <i class='bx bx-shopping-bag'></i>
+                    <span>Pesanan</span>
+                    <span class="cart-count-badge">0</span>
+                </button>
+                <a href="loginPage.html" class="btn-primary-sm">
+                    <i class='bx bx-user'></i>
+                    <span>Masuk</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Hero -->
+    <section class="category-hero">
+        <div class="container">
+            <div style="font-size: 0.85rem; color: #ff9d76; margin-bottom: 0.5rem;">
+                <a href="index.html" style="color: #cbd5e1;">Beranda</a> &gt; <span>Kategori Mie & Ramen</span>
+            </div>
+            <h1 class="hero-title" style="margin-bottom: 0.4rem;">Noodles, Ramen & Wok Delights</h1>
+            <p class="hero-subtitle" style="margin-bottom: 0;">
+                Kuah kaldu kental kaya kolagen, mie buatan tangan yang kenyal, dan aroma wok hei khas oriental.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container" style="padding-bottom: 4rem;">
+        
+        <!-- Category Switcher Tabs -->
+        <div class="category-nav-strip">
+            <a href="burger.html" class="cat-tab">🍔 Burger (5)</a>
+            <a href="pizza.html" class="cat-tab">🍕 Pizza (4)</a>
+            <a href="noodles.html" class="cat-tab active">🍜 Mie & Ramen (4)</a>
+            <a href="sushi.html" class="cat-tab">🍣 Sushi (6)</a>
+            <a href="steak.html" class="cat-tab">🥩 Steak (4)</a>
+        </div>
+
+        <!-- Noodles Grid -->
+        <div class="dishes-grid">
+            
+            <!-- Dish 1 -->
+            <div class="dish-card">
+                <div class="dish-media">
+                    <img src="assets/images/n1.jpg" alt="Spicy Ramen">
+                    <span class="dish-badge promo">Best Seller</span>
+                </div>
+                <div class="dish-content">
+                    <span class="dish-category">Japanese Ramen</span>
+                    <h3 class="dish-title">Spicy Tonkotsu Ramen</h3>
+                    <p class="dish-desc">Kaldu gurih pedas khas Jepang dengan ajitsuke tamago setengah matang, nori renyah, dan chashu empuk.</p>
+                    <div class="dish-footer">
+                        <span class="dish-price">Rp 60.000</span>
+                        <button class="add-cart-btn" onclick="addToCart({name: 'Spicy Tonkotsu Ramen', price: 60000, img: 'assets/images/n1.jpg', category: 'Noodles'})">
+                            <i class='bx bx-plus'></i>
+                            <span>Pesan</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dish 2 -->
+            <div class="dish-card">
+                <div class="dish-media">
+                    <img src="assets/images/n2.jpg" alt="Seafood Udon">
+                </div>
+                <div class="dish-content">
+                    <span class="dish-category">Japanese Udon</span>
+                    <h3 class="dish-title">Seafood Tempura Udon</h3>
+                    <p class="dish-desc">Udon tebal kenyal dalam kuah dashi hangat jernih dengan topping ebi tempura renyah dan narutomaki.</p>
+                    <div class="dish-footer">
+                        <span class="dish-price">Rp 50.000</span>
+                        <button class="add-cart-btn" onclick="addToCart({name: 'Seafood Tempura Udon', price: 50000, img: 'assets/images/n2.jpg', category: 'Noodles'})">
+                            <i class='bx bx-plus'></i>
+                            <span>Pesan</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dish 3 -->
+            <div class="dish-card">
+                <div class="dish-media">
+                    <img src="assets/images/n3.jpg" alt="Pad Thai">
+                    <span class="dish-badge">Thai Specialty</span>
+                </div>
+                <div class="dish-content">
+                    <span class="dish-category">Thai Wok</span>
+                    <h3 class="dish-title">Bangkok Pad Thai Udang</h3>
+                    <p class="dish-desc">Kwetiau beras tumis asam manis khas Thailand dengan udang segar, tauge krispi, dan taburan kacang sangrai.</p>
+                    <div class="dish-footer">
+                        <span class="dish-price">Rp 45.000</span>
+                        <button class="add-cart-btn" onclick="addToCart({name: 'Bangkok Pad Thai Udang', price: 45000, img: 'assets/images/n3.jpg', category: 'Noodles'})">
+                            <i class='bx bx-plus'></i>
+                            <span>Pesan</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dish 4 -->
+            <div class="dish-card">
+                <div class="dish-media">
+                    <img src="assets/images/n4.jpeg" alt="Chicken Chow Mein">
+                </div>
+                <div class="dish-content">
+                    <span class="dish-category">Chinese Wok</span>
+                    <h3 class="dish-title">Crispy Chicken Chow Mein</h3>
+                    <p class="dish-desc">Mie telur goreng garing disiram kuah kental sayuran segar, jamur kuping dan suwiran ayam gurih.</p>
+                    <div class="dish-footer">
+                        <span class="dish-price">Rp 65.000</span>
+                        <button class="add-cart-btn" onclick="addToCart({name: 'Crispy Chicken Chow Mein', price: 65000, img: 'assets/images/n4.jpeg', category: 'Noodles'})">
+                            <i class='bx bx-plus'></i>
+                            <span>Pesan</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2026 FlavorCircle Indonesia. Hak Cipta Dilindungi.</p>
+                <div class="team-credit">Dibuat oleh <span>Kelompok 5 HCI</span> Binus University</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cartDrawerOverlay" class="cart-drawer-overlay close-cart-trigger"></div>
+    <aside id="cartDrawer" class="cart-drawer">
+        <div class="cart-drawer-head">
+            <h3 class="cart-drawer-title">
+                <i class='bx bx-shopping-bag' style="color: var(--primary);"></i>
+                <span>Pesanan Kamu <span id="cartDrawerCount">(0)</span></span>
+            </h3>
+            <button class="close-btn close-cart-trigger"><i class='bx bx-x'></i></button>
+        </div>
+        <div id="cartDrawerList" class="cart-items-list"></div>
+        <div class="cart-drawer-footer">
+            <div class="cart-breakdown-row">
+                <span>Subtotal Menu</span>
+                <span id="cartDrawerSubtotal" style="font-weight: 700;">Rp 0</span>
+            </div>
+            <div class="cart-breakdown-row">
+                <span>Biaya Antar Kampus</span>
+                <span style="font-weight: 700; color: var(--forest);">Rp 8.000</span>
+            </div>
+            <div class="cart-breakdown-row total-row">
+                <span>Estimasi Total</span>
+                <span id="cartDrawerTotal" style="color: var(--primary);">Rp 0</span>
+            </div>
+            <button class="checkout-btn" onclick="goToCheckout()">
+                <span>Lanjut ke Pembayaran</span>
+                <i class='bx bx-right-arrow-alt'></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Location Modal -->
+    <div id="locationModal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-head">
+                <h3 class="modal-title">Pilih Alamat Pengantaran</h3>
+                <button class="close-btn close-loc-modal"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="location-options-list">
+                    <div class="location-option-item" onclick="selectLocation('Binus University, Syahdan Campus (Kemanggisan)')">
+                        <i class='bx bxs-school'></i>
+                        <div>
+                            <div class="loc-opt-name">Binus Kampus Syahdan</div>
+                            <div class="loc-opt-desc">Kemanggisan, Palmerah, Jakarta Barat</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
