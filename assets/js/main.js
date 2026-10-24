@@ -424,7 +424,7 @@ const PROJECT_DATA = {
   },
 
   'geforce': {
-    kicker: 'PYTHON DATA PIPELINE • STATISTICAL EDA & 3D WEBGL',
+    kicker: 'PYTHON DATA PIPELINE • GIT • STATISTICAL EDA & 3D WEBGL',
     title: 'GeForce GPU Specification Pipeline & 3D Explorer',
     images: [
       { src: 'assets/images/project-geforce.png', label: 'Interactive 3D GPU Explorer' },
@@ -437,7 +437,7 @@ const PROJECT_DATA = {
       { val: 'FP32 TFLOPS', lbl: 'Engineered Compute Metric' }
     ],
     overview:
-      'Built an end-to-end Python data pipeline (Pandas, NumPy, Seaborn, Matplotlib) to clean, standardize, and analyze 46 NVIDIA GeForce desktop GPUs across Turing, Ampere, Ada Lovelace, Pascal, and Maxwell architectures — paired with an interactive 3D hardware explorer.',
+      'Built an automated Python data pipeline (Pandas, NumPy, Seaborn, Matplotlib) managed under Git version control to clean, standardize, and analyze 46 NVIDIA GeForce desktop GPUs across Turing, Ampere, Ada Lovelace, Pascal, and Maxwell architectures — paired with an interactive 3D hardware explorer.',
     highlights: [
       '<strong>Feature Engineering:</strong> Computed theoretical FP32 TFLOPS from CUDA cores and boost clock speeds, plus Performance-per-Dollar (TFLOPS/$) value ratios.',
       '<strong>Statistical Findings:</strong> Proved strong correlation between CUDA core count and launch MSRP (r = 0.88), while revealing diminishing returns above the $800 flagship tier.',
@@ -449,19 +449,19 @@ const PROJECT_DATA = {
   },
 
   'bnexus': {
-    kicker: 'APPLIED AI • EDTECH PRODUCT FOR BINUSIANS',
+    kicker: 'APPLIED AI • GIT • REST APIS • EDTECH',
     title: 'B-Nexus — AI Study Assistant & Active Recall Platform',
     images: [
       { src: 'assets/images/project-bnexus.png', label: 'B-Nexus Landing & Overview' },
-      { src: 'assets/images/project-bnexus-app.png', label: 'Dashboard & Study Workspace' }
+      { src: 'assets/images/project-bnexus-dash.png', label: 'Dashboard & Study Workspace' }
     ],
     kpis: [
       { val: 'PDF → Quiz', lbl: 'Automated Extraction' },
       { val: 'Flashcards', lbl: 'Active Recall Engine' },
-      { val: 'Live App', lbl: 'Deployed on Vercel' }
+      { val: 'Git & Vercel', lbl: 'Version Control & Deploy' }
     ],
     overview:
-      'Designed an AI-powered learning companion tailored for BINUS University students to turn dense lecture slide decks and PDFs into structured study materials, interactive flashcards, and practice quizzes.',
+      'Designed an AI study assistant tailored for BINUS University students to turn dense lecture slide decks and PDFs into structured study materials, interactive flashcards, and practice quizzes. Integrated with REST APIs, document processing, and Git version control deployed on Vercel.',
     highlights: [
       '<strong>Document-to-Quiz Workflow:</strong> Students upload course materials and immediately generate multiple-choice quizzes and summary notes.',
       '<strong>Active Recall Flashcards:</strong> Built-in card flipping and mastery tracking to prepare for university midterms and finals.',
@@ -473,22 +473,25 @@ const PROJECT_DATA = {
   },
 
   'growtopia': {
-    kicker: 'ALGORITHMIC LOGIC • ECONOMIC & YIELD SIMULATOR',
-    title: 'GrowMass — Production Chain & Farm Yield Calculator',
+    kicker: 'FULLSTACK WEB APPLICATION • SQL & NOSQL (POSTGRESQL JSONB) • REST APIS • SIMULATOR',
+    title: 'GrowMass — Production Chain & Hybrid Database Suite',
     images: [
-      { src: 'assets/images/project-growtopia.png', label: 'GrowMass Planner & Simulator UI' }
+      { src: 'assets/images/project-growtopia.png', label: 'GrowMass Production Chain & Economics Planner' },
+      { src: 'assets/images/project-growtopia-sim.png', label: 'Farm Yield Simulator (Siklus Panen & Neraca)' }
     ],
     kpis: [
-      { val: '800+ Items', lbl: 'Relational Recipe Tree' },
-      { val: '3 Calculators', lbl: 'Massing, Farming & Science' },
-      { val: 'ROI Math', lbl: 'Seed Loss & Profit Modeling' }
+      { val: '827 Items', lbl: 'PostgreSQL Relational DB' },
+      { val: 'NoSQL JSONB', lbl: 'GIN Document Store' },
+      { val: 'Cloud Sync', lbl: 'Shared Plans & Inventory' }
     ],
     overview:
-      'Created a comprehensive mathematical planner and economic simulator for complex multi-step crafting trees. I formulated the underlying probability and yield equations, then used AI-assisted web development to build the interactive interface.',
+      'Created a fullstack mathematical planner and hybrid cloud database suite for complex multi-tier crafting trees, backed by an active PostgreSQL database on Supabase Cloud. Integrates normalized relational tables with Row-Level Security (RLS) alongside NoSQL JSONB document storage with GIN indexing for polymorphic crafting trees, real-time REST API synchronization, personal inventory management, cloud project saves, and public shareable links.',
     highlights: [
-      '<strong>Multi-Step Recipe Resolution:</strong> Automatically calculates exact seed requirements, splicing steps, and block yields across 800+ items.',
-      '<strong>Buy vs. Splice Optimization:</strong> Compares World Lock (WL) market costs at every branch of the crafting tree so players know whether to buy or craft intermediate ingredients.',
-      '<strong>Harvester Fuel & Science Simulators:</strong> Models 10% seed loss prevention ROI and chemical synthesizer profit per harvest cycle.'
+      '<strong>Hybrid SQL + NoSQL Architecture:</strong> Combined 3NF relational schemas (<code>profiles</code>, <code>user_inventories</code>) for structured entity integrity with semi-structured <strong>JSONB document stores</strong> (<code>user_projects.calculator_state</code>, <code>shared_plans.plan_snapshot</code>) to handle polymorphic, schema-less splicing recipes without costly schema migrations.',
+      '<strong>NoSQL GIN Indexing:</strong> Implemented Generalized Inverted Indexes (<code>USING GIN</code>) on JSONB columns, enabling sub-millisecond document-path lookups across deeply nested recipe graphs.',
+      '<strong>Public Share Links (<code>shared_plans</code>):</strong> Generates unique alphanumeric share codes enabling players to publish and share full massing tree snapshots across Discord.',
+      '<strong>Personal Material Inventory (<code>user_inventories</code>):</strong> Tracks on-hand seed and block reserves per user account, dynamically subtracting existing stock from required shopping lists.',
+      '<strong>User Authentication & Project History:</strong> Supabase Auth integration allowing users to manage custom profiles (Growtopia IGN & Discord tag) and persist multi-step splicing projects across devices.'
     ],
     actions: [
       { label: 'Open Live Website (Netlify)', url: 'https://growmass-planner.netlify.app/', primary: true }
@@ -496,7 +499,7 @@ const PROJECT_DATA = {
   },
 
   'flavorcircle': {
-    kicker: 'HUMAN-COMPUTER INTERACTION (HCI) • UI/UX PROTOTYPE',
+    kicker: 'HUMAN-COMPUTER INTERACTION (HCI) • GIT • UI/UX PROTOTYPE',
     title: 'FlavorCircle — Campus Food Ordering & Foodie Community',
     images: [
       { src: 'assets/images/project-flavorcircle.png', label: 'FlavorCircle Campus Dining Platform' }
@@ -507,7 +510,7 @@ const PROJECT_DATA = {
       { val: 'Live Cart', lbl: 'Slide-Over Checkout Simulation' }
     ],
     overview:
-      'Developed as a Human-Computer Interaction (HCI) group project at BINUS University. FlavorCircle connects students with affordable campus-area food stalls, verified student reviews, and group delivery ordering.',
+      'Developed as a Human-Computer Interaction (HCI) group project at BINUS University with Git collaboration. FlavorCircle connects students with affordable campus-area food stalls, verified student reviews, and group delivery ordering.',
     highlights: [
       '<strong>Complete 17-Screen Prototype:</strong> Covers onboarding, campus location switching, stall discovery, dietary filtering, group orders, and live order tracking.',
       '<strong>Interactive Shopping Cart:</strong> Features real-time item quantity updates, promo code calculation, and delivery fee breakdown.',
@@ -519,22 +522,22 @@ const PROJECT_DATA = {
   },
 
   'pentaho-research': {
-    kicker: 'DATA ENGINEERING & IEEE RESEARCH • BINUS UNIVERSITY',
+    kicker: 'DATA WAREHOUSING & IEEE RESEARCH • BINUS UNIVERSITY',
     title: 'Comparative Analysis of Low-Code (Pentaho PDI) vs Code-First ETL Pipelines',
     images: [
       { src: 'assets/images/project-pentaho.png', label: 'Actual Pentaho Spoon ETL Pipeline' }
     ],
     kpis: [
+      { val: 'Star Schema', lbl: 'Data Warehousing' },
       { val: '184–212', lbl: 'Countries Normalized' },
-      { val: 'Star Schema', lbl: 'Fact & Dimension Tables' },
       { val: 'IEEE Paper', lbl: 'Co-Authored Research' }
     ],
     overview:
-      'Co-authored an academic paper in IEEE format investigating the trade-offs between visual low-code ETL tools (Pentaho Data Integration / Spoon) and code-first Python pipelines when harmonizing multi-decade global macroeconomic datasets (Global Income, Global Inflation, and Global Peace Index).',
+      'Membangun dan mengelola data pipeline untuk kebutuhan data warehousing. Co-authored an academic research paper in IEEE format investigating the trade-offs between visual low-code ETL tools (Pentaho Data Integration / Spoon) and code-first Python pipelines when harmonizing multi-decade global macroeconomic datasets (Global Income, Global Inflation, and Global Peace Index) into structured Star-Schema fact and dimension tables.',
     highlights: [
-      '<strong>End-to-End Pentaho ETL Design:</strong> Built visual transformation flows using CSV Input, Select Values, Row Normalizer (pivoting year columns 1980–2024), Filter Rows, Sort Rows, and Merge Join steps.',
-      '<strong>Dimensional Data Warehousing:</strong> Populated structured Star-Schema tables including <code>FACT_TABLE</code>, <code>DIM_COUNTRY</code>, <code>Dim_Time</code>, and <code>Fact_Economic_Peace</code>.',
-      '<strong>Empirical Findings:</strong> Demonstrated how Pentaho excels at visual lineage, rapid schema inspection, and modular team debugging, while comparing execution overhead against script-based pipelines.'
+      '<strong>Membangun Pipeline Data Warehousing:</strong> Populated structured Star-Schema tables including <code>FACT_TABLE</code>, <code>DIM_COUNTRY</code>, <code>Dim_Time</code>, and <code>Fact_Economic_Peace</code>.',
+      '<strong>End-to-End Pentaho ETL Design:</strong> Built visual transformation flows using CSV Input, Select Values, Row Normalizer (pivoting year columns 1980–2024), Filter Rows, Sort Rows, and Merge Join steps, integrated with Git-tracked Python scripts.',
+      '<strong>Empirical Architectural Findings:</strong> Evaluated pipeline execution latency, data lineage visibility, and schema auditability comparing visual low-code workflows against script-based Python architectures.'
     ],
     actions: [
       { label: 'Read IEEE Research Paper (PDF)', url: 'assets/IEEE_Pentaho_Research_Paper.pdf', primary: true },
